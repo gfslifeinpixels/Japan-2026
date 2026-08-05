@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍁 DIY JAPAN · Autumn Itinerary 3pax by Grace 🍁</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- INTERCHANGED FONTS: Now using 'Playfair Display' for headings and 'Lato' for body -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -365,7 +364,8 @@
 
         .modal-body .movie-section,
         .modal-body .fuji-section,
-        .modal-body .shibuya-section {
+        .modal-body .shibuya-section,
+        .modal-body .disney-section {
             background: #fcf3e0;
             border-radius: 40px;
             padding: 15px 25px;
@@ -374,7 +374,8 @@
         }
         .modal-body .movie-section .movie-title,
         .modal-body .fuji-section .fuji-title,
-        .modal-body .shibuya-section .shibuya-title {
+        .modal-body .shibuya-section .shibuya-title,
+        .modal-body .disney-section .disney-title {
             font-size: 1.6rem;
             font-weight: 900;
             color: #6b2e1a;
@@ -382,7 +383,8 @@
         }
         .modal-body .movie-section .movie-title i,
         .modal-body .fuji-section .fuji-title i,
-        .modal-body .shibuya-section .shibuya-title i {
+        .modal-body .shibuya-section .shibuya-title i,
+        .modal-body .disney-section .disney-title i {
             margin-right: 10px;
         }
 
@@ -461,6 +463,20 @@
             transform: scale(1.05);
         }
 
+        .modal-body .disney-img {
+            max-height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            border: 4px solid #b8602a;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .modal-body .disney-img:hover {
+            transform: scale(1.02);
+        }
+
         @media (max-width:750px){
             .header h1{font-size:2.6rem;}
             .modal-body .time-activity-row { flex-wrap: wrap; gap: 8px; }
@@ -468,6 +484,7 @@
             .day-label { font-size: 1rem; padding: 4px 16px; }
             .modal-body .activity-img { max-height: 40px; }
             .modal-body .scene-photo { max-height: 80px; }
+            .modal-body .disney-img { max-height: 120px; }
         }
     </style>
 </head>
@@ -516,11 +533,11 @@
         </div>
     </div>
 
-    <!-- DAY 3 – Kamakura Tour · Sunday, Oct 11, 2026 -->
+    <!-- DAY 3 – Disneyland Adventure · Sunday, Oct 11, 2026 -->
     <div class="day-tile" onclick="openModal('modal-day3')">
         <div class="day-header">
             <span class="day-badge">DAY 3</span>
-            <span class="day-label"><i class="fas fa-pagoda"></i> Kamakura Tour</span>
+            <span class="day-label"><i class="fas fa-castle"></i> Disneyland Adventure</span>
             <span class="day-date">Sunday, Oct 11, 2026</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
@@ -605,7 +622,7 @@
     </div>
 </div>
 
-<!-- ===== MODAL DAY 2 – SHIBUYA SKY (UPDATED with full itinerary) ===== -->
+<!-- MODAL DAY 2 – SHIBUYA SKY -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
@@ -693,7 +710,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 3 -->
+<!-- ===== MODAL DAY 3 – DISNEYLAND ADVENTURE ===== -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
@@ -701,9 +718,45 @@
             <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-pagoda"></i> Kamakura Tour</span></div>
-            <div class="time-activity-row"><span class="time-badge">10:00 AM</span> <span class="activity-text"><i class="fas fa-dragon"></i> Disneyland & DisneySea</span></div>
-            <div class="alert-note"><i class="fas fa-crown"></i> DisneySea unique · Kamakura Daibutsu</div>
+            <div class="disney-section">
+                <div class="disney-title"><i class="fas fa-castle"></i> Disneyland Adventure</div>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">9:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-train"></i>
+                    <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/Tokyo+Disneyland,+1-1+Maihama,+Urayasu,+Chiba,+Japan/@35.701819,139.7903463,31094m/am=t/data=!3m1!1e3!4m22!4m21!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m5!1m1!1s0x60187d03114737b3:0xe4d93636d509d3cb!2m2!1d139.8803943!2d35.6328964!2m7!4e2!5e1!5e2!5e3!6e0!7e2!8j1772701200!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Commute to Disneyland</a>
+                </span>
+            </div>
+
+            <!-- Disneyland Image - clickable to Klook -->
+            <div class="time-activity-row">
+                <span class="time-badge"></span>
+                <span class="activity-text" style="justify-content: center;">
+                    <a href="https://www.klook.com/en-PH/activity/695-tokyo-disney-resort-1-day-pass-tokyo/?_currency=PHP&campaignid=22921369639&adgroupid=189831749488&targetid=kwd-308568079156&matchtype=e&device=c&creative=770418424781&extensionid=&keyword=disneysea%20tickets&loc_interest_ms=&loc_physical_ms=9060954&network=g&utm_content=campaignid_22921369639_adgroupid_189831749488&gad_source=1&gad_campaignid=22921369639&gbraid=0AAAAACa_CWw5Q-LixZWpTCwylQ74xOS8G&gclid=CjwKCAjwisnGBhAXEiwA0zEOR68SqAvcUefxis6_mns53E0Q7p7t-eT62LNHC_w8lloduFNdzCV3ZhoCf5QQAvD_BwE" target="_blank">
+                        <img src="https://res.klook.com/image/upload/u_activities:bzpnjvymuce1p6zzspd8,h_1.0,ar_960:460,c_scale,e_blur:10000/w_750,h_469,c_fill,q_85/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/bzpnjvymuce1p6zzspd8.webp" alt="Tokyo Disneyland" class="disney-img">
+                    </a>
+                </span>
+            </div>
+
+            <div class="time-activity-row" style="justify-content: center; border-bottom: none;">
+                <span class="activity-text" style="font-size: 0.9rem; color: #772f0e; justify-content: center;">
+                    <i class="fas fa-hand-pointer"></i> Click the image to book tickets on Klook
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">9:00 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-hotel"></i>
+                    <a href="https://www.google.com/maps/dir/Tokyo+Disneyland,+1-1+Maihama,+Urayasu,+Chiba,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/@35.7018951,139.7876109,31094m/am=t/data=!3m1!1e3!4m22!4m21!1m5!1m1!1s0x60187d03114737b3:0xe4d93636d509d3cb!2m2!1d139.8803943!2d35.6328964!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!2m7!4e2!5e1!5e2!5e3!6e0!7e2!8j1772744400!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Back to Hotel</a>
+                </span>
+            </div>
+
+            <div class="alert-note"><i class="fas fa-castle"></i> Enjoy the magic of Tokyo Disneyland! 🏰✨</div>
         </div>
     </div>
 </div>
