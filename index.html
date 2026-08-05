@@ -511,84 +511,84 @@
         <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
     </div>
 
-    <!-- ===== DAY CARDS ===== -->
+    <!-- ===== DAY CARDS (Date first, then Label) ===== -->
 
-    <!-- DAY 1 – Arrival · Friday, Oct 9, 2026 -->
+    <!-- DAY 1 – Friday, Oct 9, 2026 · Arrival -->
     <div class="day-tile" onclick="openModal('modal-day1')">
         <div class="day-header">
             <span class="day-badge">DAY 1</span>
-            <span class="day-label"><i class="fas fa-plane-arrival"></i> Arrival</span>
             <span class="day-date">Friday, Oct 9, 2026</span>
+            <span class="day-label"><i class="fas fa-plane-arrival"></i> Arrival</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 2 – SHIBUYA SKY · Saturday, Oct 10, 2026 -->
+    <!-- DAY 2 – Saturday, Oct 10, 2026 · SHIBUYA SKY -->
     <div class="day-tile" onclick="openModal('modal-day2')">
         <div class="day-header">
             <span class="day-badge">DAY 2</span>
-            <span class="day-label"><i class="fas fa-building"></i> SHIBUYA SKY</span>
             <span class="day-date">Saturday, Oct 10, 2026</span>
+            <span class="day-label"><i class="fas fa-building"></i> SHIBUYA SKY</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 3 – Disneyland Adventure · Sunday, Oct 11, 2026 -->
+    <!-- DAY 3 – Sunday, Oct 11, 2026 · Disneyland Adventure -->
     <div class="day-tile" onclick="openModal('modal-day3')">
         <div class="day-header">
             <span class="day-badge">DAY 3</span>
-            <span class="day-label"><i class="fas fa-castle"></i> Disneyland Adventure</span>
             <span class="day-date">Sunday, Oct 11, 2026</span>
+            <span class="day-label"><i class="fas fa-castle"></i> Disneyland Adventure</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 4 – Nikko Day Trip · Monday, Oct 12, 2026 -->
+    <!-- DAY 4 – Monday, Oct 12, 2026 · Nikko Day Trip -->
     <div class="day-tile" onclick="openModal('modal-day4')">
         <div class="day-header">
             <span class="day-badge">DAY 4</span>
-            <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
             <span class="day-date">Monday, Oct 12, 2026</span>
+            <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 5 – Mt Fuji Tour · Tuesday, Oct 13, 2026 -->
+    <!-- DAY 5 – Tuesday, Oct 13, 2026 · Mt Fuji Tour -->
     <div class="day-tile" onclick="openModal('modal-day5')">
         <div class="day-header">
             <span class="day-badge">DAY 5</span>
-            <span class="day-label"><i class="fas fa-fuji"></i> Mt Fuji Tour</span>
             <span class="day-date">Tuesday, Oct 13, 2026</span>
+            <span class="day-label"><i class="fas fa-fuji"></i> Mt Fuji Tour</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 6 – Kimi No Nawa Pilgrimage · Wednesday, Oct 14, 2026 -->
+    <!-- DAY 6 – Wednesday, Oct 14, 2026 · Kimi No Nawa Pilgrimage -->
     <div class="day-tile" onclick="openModal('modal-day6')">
         <div class="day-header">
             <span class="day-badge">DAY 6</span>
-            <span class="day-label"><i class="fas fa-film"></i> Kimi No Nawa Pilgrimage</span>
             <span class="day-date">Wednesday, Oct 14, 2026</span>
+            <span class="day-label"><i class="fas fa-film"></i> Kimi No Nawa Pilgrimage</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 7 – Asakusa Historical Tour · Thursday, Oct 15, 2026 -->
+    <!-- DAY 7 – Thursday, Oct 15, 2026 · Asakusa Historical Tour -->
     <div class="day-tile" onclick="openModal('modal-day7')">
         <div class="day-header">
             <span class="day-badge">DAY 7</span>
-            <span class="day-label"><i class="fas fa-temple"></i> Asakusa Historical Tour</span>
             <span class="day-date">Thursday, Oct 15, 2026</span>
+            <span class="day-label"><i class="fas fa-temple"></i> Asakusa Historical Tour</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
 
-    <!-- DAY 8 – Departure · Friday, Oct 16, 2026 -->
+    <!-- DAY 8 – Friday, Oct 16, 2026 · Departure -->
     <div class="day-tile" onclick="openModal('modal-day8')">
         <div class="day-header">
             <span class="day-badge">DAY 8</span>
-            <span class="day-label"><i class="fas fa-plane-departure"></i> Departure</span>
             <span class="day-date">Friday, Oct 16, 2026</span>
+            <span class="day-label"><i class="fas fa-plane-departure"></i> Departure</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
     </div>
@@ -622,7 +622,7 @@
     </div>
 </div>
 
-<!-- MODAL DAY 2 – SHIBUYA SKY -->
+<!-- MODAL DAY 2 -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
@@ -633,9 +633,7 @@
             <div class="shibuya-section">
                 <div class="shibuya-title"><i class="fas fa-building"></i> SHIBUYA SKY</div>
             </div>
-
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
-
             <div class="time-activity-row">
                 <span class="time-badge">6:00 AM</span>
                 <span class="activity-text">
@@ -643,12 +641,9 @@
                     <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/Hachiko+Statue,+2+Chome-1+Dogenzaka,+Shibuya,+Tokyo+150-0043,+Japan/@35.6645356,139.7086363,14469m/am=t/data=!3m2!1e3!5s0x60188b7b9c819b61:0x92144cdf397130f5!4m19!4m18!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m5!1m1!1s0x60188b57efbd57c7:0x217e9d9fe306fba!2m2!1d139.7006293!2d35.6590579!2m3!6e0!7e2!8j1773036000!3e3!5i1?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEyMC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Hotel going to Shibuya</a>
                 </span>
             </div>
-
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-crosshairs"></i> Shibuya Scramble Crossing</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-dog"></i> Hachiko Statue</span></div>
-
             <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-coffee"></i> Coffee at Starbucks Shibuya</span></div>
-
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text">
@@ -657,7 +652,6 @@
                     <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
                 </span>
             </div>
-
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text">
@@ -666,7 +660,6 @@
                     <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
                 </span>
             </div>
-
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text">
@@ -675,7 +668,6 @@
                     <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
                 </span>
             </div>
-
             <div class="time-activity-row">
                 <span class="time-badge">1:00 PM</span>
                 <span class="activity-text">
@@ -683,7 +675,6 @@
                     <a href="https://www.google.com/maps/dir/Shibuya+Parco,+%E6%B8%8B%E8%B0%B7%E3%83%91%E3%83%AB%E3%82%B3%E3%83%BB%E3%83%92%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%83%E3%82%AF%E3%83%93%E3%83%AB+B1-10%E9%9A%8E+15-1+Udagawacho,+Shibuya,+Tokyo+150-8377,+Japan/Takeshita+St,+1-ch%C5%8Dme+Jing%C5%ABmae,+Shibuya,+Tokyo+150-0001,+Japan/@35.6587298,139.6951642,1398m/am=t/data=!3m1!1e3!4m18!4m17!1m5!1m1!1s0x60188ca8e2fe2173:0x1adbb1909538391b!2m2!1d139.6987767!2d35.6620484!1m5!1m1!1s0x60188cbaf1de5995:0xc2becc88ea4e7eb5!2m2!1d139.7051821!2d35.6710335!2m3!6e0!7e2!8j1772717400!5i1?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Back to Shibuya</a>
                 </span>
             </div>
-
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text">
@@ -691,10 +682,8 @@
                     <a href="https://www.youtube.com/watch?v=3X1LaxeJBnc" target="_blank" class="video-link">📺 Shibuya Parco (video)</a>
                 </span>
             </div>
-
             <div class="time-activity-row"><span class="time-badge">4:00 PM</span> <span class="activity-text"><i class="fas fa-building"></i> Shibuya Scramble Square</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-eye"></i> Shibuya Sky</span></div>
-
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text">
@@ -702,15 +691,13 @@
                     <a href="https://www.google.com/maps/dir/Shibuya+Scramble+Square,+2+Chome-24-12+Shibuya,+Tokyo+150-0002,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/@35.6645841,139.6746477,30644m/data=!3m1!1e3!4m14!4m13!1m5!1m1!1s0x60188b8427e1c0b1:0x78f6e23397061d6f!2m2!1d139.7022621!2d35.6584638!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!3e3?entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Shibuya going to Hotel</a>
                 </span>
             </div>
-
             <div class="time-activity-row"><span class="time-badge">8:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Back to Hotel</span></div>
-
             <div class="alert-note"><i class="fas fa-camera"></i> Don't miss the iconic Shibuya crossing view from Shibuya Sky! 📸</div>
         </div>
     </div>
 </div>
 
-<!-- ===== MODAL DAY 3 – DISNEYLAND ADVENTURE ===== -->
+<!-- MODAL DAY 3 – Disneyland Adventure -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
@@ -721,9 +708,7 @@
             <div class="disney-section">
                 <div class="disney-title"><i class="fas fa-castle"></i> Disneyland Adventure</div>
             </div>
-
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
-
             <div class="time-activity-row">
                 <span class="time-badge">9:00 AM</span>
                 <span class="activity-text">
@@ -731,8 +716,6 @@
                     <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/Tokyo+Disneyland,+1-1+Maihama,+Urayasu,+Chiba,+Japan/@35.701819,139.7903463,31094m/am=t/data=!3m1!1e3!4m22!4m21!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m5!1m1!1s0x60187d03114737b3:0xe4d93636d509d3cb!2m2!1d139.8803943!2d35.6328964!2m7!4e2!5e1!5e2!5e3!6e0!7e2!8j1772701200!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Commute to Disneyland</a>
                 </span>
             </div>
-
-            <!-- Disneyland Image - clickable to Klook -->
             <div class="time-activity-row">
                 <span class="time-badge"></span>
                 <span class="activity-text" style="justify-content: center;">
@@ -741,13 +724,11 @@
                     </a>
                 </span>
             </div>
-
             <div class="time-activity-row" style="justify-content: center; border-bottom: none;">
                 <span class="activity-text" style="font-size: 0.9rem; color: #772f0e; justify-content: center;">
                     <i class="fas fa-hand-pointer"></i> Click the image to book tickets on Klook
                 </span>
             </div>
-
             <div class="time-activity-row">
                 <span class="time-badge">9:00 PM</span>
                 <span class="activity-text">
@@ -755,7 +736,6 @@
                     <a href="https://www.google.com/maps/dir/Tokyo+Disneyland,+1-1+Maihama,+Urayasu,+Chiba,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/@35.7018951,139.7876109,31094m/am=t/data=!3m1!1e3!4m22!4m21!1m5!1m1!1s0x60187d03114737b3:0xe4d93636d509d3cb!2m2!1d139.8803943!2d35.6328964!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!2m7!4e2!5e1!5e2!5e3!6e0!7e2!8j1772744400!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Back to Hotel</a>
                 </span>
             </div>
-
             <div class="alert-note"><i class="fas fa-castle"></i> Enjoy the magic of Tokyo Disneyland! 🏰✨</div>
         </div>
     </div>
@@ -827,8 +807,6 @@
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/35.6795278,139.7195278/@35.683132,139.715085,15520m/am=t/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m0!2m3!6e0!7e2!8j1770354000!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Asakusa → Shinjuku</a></span></div>
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place/35%C2%B040'46.3%22N+139%C2%B043'10.3%22E/@35.6795381,139.7189788,19z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d35.6795369!4d139.7195259" target="_blank" class="map-link">Shinomachi Station</a></span></div>
             <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-stairs"></i> <a href="https://www.google.com/maps/dir/Suga+Shrine,+5-6+Sugach%C5%8D,+Shinjuku+City,+Tokyo,+Japan/35%C2%B041'08.3%22N+139%C2%B043'25.5%22E/35%C2%B041'13.5%22N+139%C2%B043'22.0%22E/Yotsuya+Station,+1+Chome+Yotsuya,+Shinjuku+City,+Tokyo,+Japan/@35.6862815,139.7237734,970m/data=!3m3!1e3!4b1!5s0x60188c8d6f4217f7:0x8f4392e17c562e0!4m26!4m25!1m5!1m1!1s0x6018ece406d552f1:0x440be600a9c6807c!2m2!1d139.7224783!2d35.6852851!1m3!2m2!1d139.72375!2d35.6856389!1m3!2m2!1d139.7227778!2d35.6870833!1m5!1m1!1s0x60188c8a228fd68d:0x5400c08a1242a4f0!2m2!1d139.7302183!2d35.6861525!2m3!6e0!7e2!8j1772856000!3e2?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Suga Shrine Red Stairs</a></span></div>
-
-            <!-- Scene photos -->
             <div class="time-activity-row">
                 <span class="time-badge">On the way</span>
                 <span class="activity-text">
@@ -837,7 +815,6 @@
                     <img src="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/suga-shrine-yotsumata.jpg" alt="Suga Shrine Yotsumata - Mitsuha" class="scene-photo" onclick="window.open('https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/suga-shrine-yotsumata.jpg','_blank')" title="Click to enlarge">
                 </span>
             </div>
-
             <div class="time-activity-row"><span class="time-badge">9:00 AM</span> <span class="activity-text"><i class="fas fa-tree"></i> <a href="https://www.google.com/maps/dir/Suga+Shrine,+5-6+Sugach%C5%8D,+Shinjuku+City,+Tokyo,+Japan/35%C2%B041'08.3%22N+139%C2%B043'25.5%22E/35%C2%B041'13.5%22N+139%C2%B043'22.0%22E/Shinjuku+Gyoen+National+Garden,+Naitomachi,+Shinjuku+City,+Tokyo,+Japan/Yotsuya+Station,+1+Chome+Yotsuya,+Shinjuku+City,+Tokyo,+Japan/@35.6853961,139.7148399,1432m/data=!3m2!1e3!5s0x60188c8d6f4217f7:0x8f4392e17c562e0!4m32!4m31!1m5!1m1!1s0x6018ece406d552f1:0x440be600a9c6807c!2m2!1d139.7224783!2d35.6852851!1m3!2m2!1d139.72375!2d35.6856389!1m3!2m2!1d139.7227778!2d35.6870833!1m5!1m1!1s0x60188cc21b93233f:0x6a1eb1b5a117f287!2m2!1d139.7100517!2d35.6851763!1m5!1m1!1s0x60188c8a228fd68d:0x5400c08a1242a4f0!2m2!1d139.7302183!2d35.6861525!2m3!6e0!7e2!8j1772856000!3e2?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Shinjuku Gyoen National Garden</a> <span class="extra-route-note"><i class="fas fa-route"></i> extra route</span></span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-map-pin"></i> Yotsuya Station</span></div>
             <div class="time-activity-row"><span class="time-badge">11:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> (20 mins commute) ROPPONGI</span></div>
