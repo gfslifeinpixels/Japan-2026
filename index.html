@@ -227,6 +227,19 @@
             min-width: 40px;
         }
 
+        /* Special style for "click for images" links */
+        .image-link {
+            color: #b1582b;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dotted #b1582b;
+            transition: all 0.2s ease;
+        }
+        .image-link:hover {
+            color: #6b2e1a;
+            border-bottom: 2px solid #6b2e1a;
+        }
+
         .alert-note {
             background: #f7e2b5;
             border-radius: 50px;
@@ -276,6 +289,45 @@
             margin-right: 10px;
         }
 
+        /* Kimi No Nawa special styling */
+        .movie-section {
+            background: #fcf3e0;
+            border-radius: 40px;
+            padding: 15px 25px;
+            margin-top: 10px;
+            border: 4px solid #d4925a;
+        }
+        .movie-section .movie-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #6b2e1a;
+            margin-bottom: 10px;
+        }
+        .movie-section .movie-title i {
+            margin-right: 10px;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .image-grid .img-placeholder {
+            background: #e6d5b8;
+            border-radius: 20px;
+            padding: 8px 18px;
+            border: 3px dashed #b8602a;
+            font-weight: 600;
+            color: #5f2c12;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .image-grid .img-placeholder i {
+            font-size: 1.5rem;
+            color: #b1582b;
+        }
+
         @media (max-width:750px){
             .header h1{font-size:2.6rem;}
             .time-activity-row { flex-wrap: wrap; gap: 8px; }
@@ -315,10 +367,10 @@
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
-            <div class="time-activity-row"><span class="time-badge">8:45 AM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Baggage Checkin</span></div>
-            <div class="time-activity-row"><span class="time-badge">12:15 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 11:25 AM</span></div>
-            <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita 6 PM</span></div>
-            <div class="time-activity-row"><span class="time-badge">9:00 PM</span> <span class="activity-text"><i class="fas fa-key"></i> Hotel check-in + Asakusa Food Trip</span></div>
+            <div class="time-activity-row"><span class="time-badge">3:10 AM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Baggage Checkin</span></div>
+            <div class="time-activity-row"><span class="time-badge">11:25 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 11:25 AM</span></div>
+            <div class="time-activity-row"><span class="time-badge">12:25 PM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita 12:25 PM</span></div>
+            <div class="time-activity-row"><span class="time-badge">3:00 PM</span> <span class="activity-text"><i class="fas fa-key"></i> Hotel check-in + Asakusa Food Trip</span></div>
             <div class="alert-note"><i class="fas fa-utensils"></i> Asakusa: Nakamise-dori, melon pan, ningyo-yaki</div>
         </div>
     </div>
@@ -377,7 +429,7 @@
         </div>
     </div>
 
-    <!-- ========== DAY 6 – Wednesday Oct 14 ========= -->
+    <!-- ========== DAY 6 – Wednesday Oct 14 (Kimi No Nawa SPECIAL) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 6</span>
@@ -385,9 +437,40 @@
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
-            <div class="time-activity-row"><span class="time-badge">Morning</span> <span class="activity-text"><i class="fas fa-film"></i> "Your Name" Pilgrimage (Suga Shrine)</span></div>
-            <div class="time-activity-row"><span class="time-badge">Noon</span> <span class="activity-text"><i class="fas fa-lightbulb"></i> Teamlab Borderless</span></div>
-            <div class="alert-note"><i class="fas fa-paint-roller"></i> digital art magic at teamlab</div>
+            <!-- Movie title header -->
+            <div class="movie-section">
+                <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">4:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
+            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> Asakusa → Shinjuku</span></div>
+            <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Shinomachi Station</span></div>
+            <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-stairs"></i> Suga Shrine Red Stairs</span></div>
+
+            <!-- Image links with clickable text -->
+            <div class="time-activity-row">
+                <span class="time-badge">On the way</span>
+                <span class="activity-text">
+                    <i class="fas fa-camera"></i>
+                    <a href="#" class="image-link" onclick="alert('📸 Taki image would open here'); return false;">📸 Taki image</a>
+                    <span style="margin:0 5px;">&</span>
+                    <a href="#" class="image-link" onclick="alert('📸 Mitsuha image would open here'); return false;">📸 Mitsuha image</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">9:00 AM</span> <span class="activity-text"><i class="fas fa-tree"></i> Shinjuku Gyoen National Garden</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-map-pin"></i> Yotsuya Station</span></div>
+            <div class="time-activity-row"><span class="time-badge">11:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> (20 mins commute) ROPPONGI</span></div>
+
+            <div class="time-activity-row"><span class="time-badge">12:00 PM</span> <span class="activity-text"><i class="fas fa-building"></i> TeamLab Borderless Mori Bldg</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-leaf"></i> Mori Garden</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-coffee"></i> Salon De the Rond</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-art"></i> The National Art Center</span></div>
+
+            <div class="time-activity-row"><span class="time-badge">5:00 PM</span> <span class="activity-text"><i class="fas fa-city"></i> Roppongi Hills (Tokyo City View)</span></div>
+            <div class="time-activity-row"><span class="time-badge">8:00 PM</span> <span class="activity-text"><i class="fas fa-train"></i> Roppongi → Asakusa · Back to Hotel</span></div>
+
+            <div class="alert-note"><i class="fas fa-star"></i> Your Name pilgrimage complete! ✨</div>
         </div>
     </div>
 
@@ -413,9 +496,9 @@
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
-            <div class="time-activity-row"><span class="time-badge">10:00 AM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check-out</span></div>
-            <div class="time-activity-row"><span class="time-badge">12:P0 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita Airport</span></div>
-            <div class="time-activity-row"><span class="time-badge">4:00 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 6 PM</span></div>
+            <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check-out</span></div>
+            <div class="time-activity-row"><span class="time-badge">10:00 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita Airport</span></div>
+            <div class="time-activity-row"><span class="time-badge">1:45 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 1:45 PM</span></div>
             <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 8am · at Narita by 10am · depart 1:45 PM</div>
         </div>
     </div>
