@@ -108,16 +108,23 @@
             margin-bottom: 15px;
         }
 
-        /* DAY CARDS */
+        /* DAY CARDS - Clickable */
         .day-tile {
-            margin: 30px 0;
+            margin: 20px 0;
             background: #fff7eada;
             backdrop-filter: blur(4px);
             border-radius: 80px 30px 80px 30px;
             border: 5px solid #ffeac2;
             box-shadow: 12px 18px 0 #b25d2e, 0 20px 20px -8px #5f2c12;
             overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
+        .day-tile:hover {
+            transform: scale(1.01);
+            box-shadow: 14px 20px 0 #b25d2e, 0 25px 25px -8px #5f2c12;
+        }
+
         .day-header {
             display: flex;
             align-items: center;
@@ -126,7 +133,23 @@
             background: #f8bc7c;
             padding: 16px 30px;
             border-bottom: 6px solid #c16529;
+            transition: background 0.3s ease;
+            position: relative;
         }
+        .day-header:hover {
+            background: #f5ad66;
+        }
+
+        .day-header .toggle-icon {
+            margin-left: auto;
+            font-size: 1.8rem;
+            color: #6b2e1a;
+            transition: transform 0.3s ease;
+        }
+        .day-tile.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
         .day-badge {
             background: #8f421f;
             color: #fff2d4;
@@ -146,10 +169,28 @@
             letter-spacing: 0.5px;
         }
 
-        /* TIMELINE ROWS */
+        /* Itinerary content - hidden by default */
         .itinerary-list {
             padding: 20px 30px;
+            display: none;
+            animation: fadeSlide 0.4s ease forwards;
         }
+
+        .day-tile.active .itinerary-list {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .time-activity-row {
             display: flex;
             align-items: baseline;
@@ -219,10 +260,27 @@
             margin-right: 8px;
         }
 
+        /* Click instruction */
+        .click-hint {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #6b2e1a;
+            background: #f7e2b5;
+            padding: 10px 25px;
+            border-radius: 60px;
+            border: 3px solid #bb651e;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .click-hint i {
+            margin-right: 10px;
+        }
+
         @media (max-width:750px){
             .header h1{font-size:2.6rem;}
             .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .time-badge { flex: 0 0 100px; }
+            .day-header .toggle-icon { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -239,114 +297,127 @@
         <div class="price-chip"><i class="fas fa-tag"></i> ₱50,000/pax*</div>
     </div>
 
-    <!-- HOTEL APA HOTEL ASAKUSA-EKIMAE -->
+    <!-- HOTEL TBA -->
     <div class="hotel-info">
-        <i class="fas fa-hotel fa-2x"></i> Hotel: TBA · 6 nights (Sep 6–12)
+        <i class="fas fa-hotel fa-2x"></i> Hotel: TBA · 6 nights (Oct 9–15)
     </div>
 
-    <!-- ========== DAY 1 – Sunday Sep 6 ========= -->
-    <div class="day-tile">
+    <!-- Click Hint -->
+    <div class="click-hint">
+        <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
+    </div>
+
+    <!-- ========== DAY 1 – Friday Oct 9 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 1</span>
-            <span class="day-date">Sunday, Sep 6, 2026</span>
+            <span class="day-date">Friday, Oct 9, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">3:10 AM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Baggage Checkin</span></div>
             <div class="time-activity-row"><span class="time-badge">11:25 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 11:25 AM</span></div>
             <div class="time-activity-row"><span class="time-badge">12:25 PM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita 12:25 PM</span></div>
             <div class="time-activity-row"><span class="time-badge">3:00 PM</span> <span class="activity-text"><i class="fas fa-key"></i> Hotel check-in + Asakusa Food Trip</span></div>
+            <div class="alert-note"><i class="fas fa-utensils"></i> Asakusa: Nakamise-dori, melon pan, ningyo-yaki</div>
         </div>
-        <div class="alert-note"><i class="fas fa-utensils"></i> Asakusa: Nakamise-dori, melon pan, ningyo-yaki</div>
     </div>
 
-    <!-- ========== DAY 2 – Monday Sep 7 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 2 – Saturday Oct 10 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 2</span>
-            <span class="day-date">Monday, Sep 7, 2026</span>
+            <span class="day-date">Saturday, Oct 10, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">Morning</span> <span class="activity-text"><i class="fas fa-building"></i> Shibuya (Shibuya Sky / Hachiko)</span></div>
             <div class="time-activity-row"><span class="time-badge">Noon</span> <span class="activity-text"><i class="fas fa-tree"></i> Harajuku: Meiji Jingu / Takeshita St</span></div>
+            <div class="alert-note"><i class="fas fa-ice-cream"></i> Harajuku crepes, Shibuya egg sandwich</div>
         </div>
-        <div class="alert-note"><i class="fas fa-ice-cream"></i> Harajuku crepes, Shibuya egg sandwich</div>
     </div>
 
-    <!-- ========== DAY 3 – Tuesday Sep 8 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 3 – Sunday Oct 11 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 3</span>
-            <span class="day-date">Tuesday, Sep 8, 2026</span>
+            <span class="day-date">Sunday, Oct 11, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-pagoda"></i> Kamakura Tour</span></div>
             <div class="time-activity-row"><span class="time-badge">10:00 AM</span> <span class="activity-text"><i class="fas fa-dragon"></i> Disneyland & DisneySea</span></div>
+            <div class="alert-note"><i class="fas fa-crown"></i> DisneySea unique · Kamakura Daibutsu</div>
         </div>
-        <div class="alert-note"><i class="fas fa-crown"></i> DisneySea unique · Kamakura Daibutsu</div>
     </div>
 
-    <!-- ========== DAY 4 – Wednesday Sep 9 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 4 – Monday Oct 12 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 4</span>
-            <span class="day-date">Wednesday, Sep 9, 2026</span>
+            <span class="day-date">Monday, Oct 12, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-mountain"></i> Nikko Day Trip (Toshogu, Kegon)</span></div>
+            <div class="alert-note"><i class="fas fa-map"></i> Nikko: world heritage & autumn leaves</div>
         </div>
-        <div class="alert-note"><i class="fas fa-map"></i> Nikko: world heritage & autumn leaves</div>
     </div>
 
-    <!-- ========== DAY 5 – Thursday Sep 10 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 5 – Tuesday Oct 13 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 5</span>
-            <span class="day-date">Thursday, Sep 10, 2026</span>
+            <span class="day-date">Tuesday, Oct 13, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-fuji"></i> Mt Fuji Tour (Kawaguchiko, Chureito)</span></div>
+            <div class="alert-note"><i class="fas fa-camera"></i> best views of Fuji-san</div>
         </div>
-        <div class="alert-note"><i class="fas fa-camera"></i> best views of Fuji-san</div>
     </div>
 
-    <!-- ========== DAY 6 – Friday Sep 11 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 6 – Wednesday Oct 14 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 6</span>
-            <span class="day-date">Friday, Sep 11, 2026</span>
+            <span class="day-date">Wednesday, Oct 14, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">Morning</span> <span class="activity-text"><i class="fas fa-film"></i> "Your Name" Pilgrimage (Suga Shrine)</span></div>
             <div class="time-activity-row"><span class="time-badge">Noon</span> <span class="activity-text"><i class="fas fa-lightbulb"></i> Teamlab Borderless</span></div>
+            <div class="alert-note"><i class="fas fa-paint-roller"></i> digital art magic at teamlab</div>
         </div>
-        <div class="alert-note"><i class="fas fa-paint-roller"></i> digital art magic at teamlab</div>
     </div>
 
-    <!-- ========== DAY 7 – Saturday Sep 12 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 7 – Thursday Oct 15 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 7</span>
-            <span class="day-date">Saturday, Sep 12, 2026</span>
+            <span class="day-date">Thursday, Oct 15, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">Morning</span> <span class="activity-text"><i class="fas fa-vest"></i> Kaminarimon (Kimono/Hakama fit – optional)</span></div>
             <div class="time-activity-row"><span class="time-badge">Noon</span> <span class="activity-text"><i class="fas fa-bag-shopping"></i> Ginza / Yokohama Shopping (if time)</span></div>
+            <div class="alert-note"><i class="fas fa-shopping-bag"></i> Ginza luxury, Yokohama Minato Mirai</div>
         </div>
-        <div class="alert-note"><i class="fas fa-shopping-bag"></i> Ginza luxury, Yokohama Minato Mirai</div>
     </div>
 
-    <!-- ========== DAY 8 – Sunday Sep 13 ========= -->
-    <div class="day-tile">
+    <!-- ========== DAY 8 – Friday Oct 16 ========= -->
+    <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 8</span>
-            <span class="day-date">Sunday, Sep 13, 2026</span>
+            <span class="day-date">Friday, Oct 16, 2026</span>
+            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
             <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check-out</span></div>
             <div class="time-activity-row"><span class="time-badge">10:00 AM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita Airport</span></div>
             <div class="time-activity-row"><span class="time-badge">1:45 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure 1:45 PM</span></div>
+            <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 8am · at Narita by 10am · depart 1:45 PM</div>
         </div>
-        <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 8am · at Narita by 10am · depart 1:45 PM</div>
     </div>
 
     <!-- FOOTER -->
@@ -356,5 +427,13 @@
     </div>
 
 </div> <!-- end autumn-card -->
+
+<script>
+    // Toggle function for day cards
+    function toggleDay(element) {
+        element.classList.toggle('active');
+    }
+</script>
+
 </body>
 </html>
