@@ -197,28 +197,94 @@
             margin-right: 10px;
         }
 
+        /* ===== FIXED FOOTER STYLES ===== */
         .footer-modern {
             background: #b1582b;
             color: #fff1d4;
-            padding: 25px 40px;
+            padding: 20px 35px;
             border-radius: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 45px;
+            margin-top: 30px;
             flex-wrap: wrap;
             font-family: 'Lato', sans-serif;
+            gap: 16px;
+            border: 4px solid #fde5b1;
+            box-shadow: 0 6px 0 #6f2e0f;
         }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-contact .contact-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid #fff5d6;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .footer-contact .contact-avatar:hover {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .footer-contact .contact-name {
+            color: #fff5d6;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            border-bottom: 2px solid #fde5b1;
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
+        }
+        .footer-contact .contact-name:hover {
+            color: #ffffff;
+        }
+
+        /* ===== SMALLER FOOTER HANDLE ===== */
         .footer-handle {
             background: #3e1f10;
-            padding: 14px 45px;
-            border-radius: 60px;
-            font-size: 2rem;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-size: 1.2rem;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
+            border: 2px solid #fde5b1;
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
         }
-        .footer-note i {
-            margin-right: 8px;
+
+        .footer-handle .hashtag {
+            display: block;
+            font-size: 0.7rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            color: #fde5b1;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5f3a2a;
+            margin-top: 15px;
+            font-weight: 600;
+            opacity: 0.8;
+            font-family: 'Lato', sans-serif;
+            padding: 0 10px;
+        }
+        .footnote i {
+            margin-right: 5px;
+            color: #b1582b;
         }
 
         /* ===== MODAL STYLES ===== */
@@ -485,6 +551,10 @@
             .modal-body .activity-img { max-height: 40px; }
             .modal-body .scene-photo { max-height: 80px; }
             .modal-body .disney-img { max-height: 120px; }
+            .footer-modern { flex-direction: column; text-align: center; padding: 18px 20px; }
+            .footer-handle { font-size: 1rem; padding: 8px 20px; }
+            .footer-contact { flex-wrap: wrap; justify-content: center; }
+            .footer-contact .contact-avatar { width: 35px; height: 35px; }
         }
     </style>
 </head>
@@ -495,7 +565,7 @@
     <div class="header">
         <div>
             <h1>🍁 DIY JAPAN<br>LAND ARRANGEMENT 🍁</h1>
-            <div class="grace-badge">✨ by Grace () ✨</div>
+            <div class="grace-badge">✨ by Grace (@theGFsadvise) ✨</div>
             <div class="pax-badge"><i class="fas fa-users"></i> 3 pax · autumn 2026</div>
         </div>
         <div class="price-chip"><i class="fas fa-tag"></i> ₱50,000/pax*</div>
@@ -511,7 +581,7 @@
         <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
     </div>
 
-    <!-- ===== DAY CARDS (Date first, then Label) ===== -->
+    <!-- ===== DAY CARDS ===== -->
 
     <!-- DAY 1 – Friday, Oct 9, 2026 · Arrival -->
     <div class="day-tile" onclick="openModal('modal-day1')">
@@ -593,24 +663,25 @@
         </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
-        <div class="footer-modern">
-            <div class="footer-contact">
-                <span style="font-size: 1.1rem;">📩 questions? contact:</span>
-                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
-            </div>
-            <div class="footer-handle">
-                ✨ GF: Good Times, Far Places ✨
-                <span class="hashtag">#GeeExplores</span>
-            </div>
+    <!-- ===== FIXED FOOTER WITH SMALLER HANDLE ===== -->
+    <div class="footer-modern">
+        <div class="footer-contact">
+            <span style="font-size: 1rem;">📩 questions? contact:</span>
+            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
+            </a>
+            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
         </div>
-
-        <!-- ===== SUPER SMALL FOOTNOTE ===== -->
-        <div class="footnote">
-            <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
+        <div class="footer-handle">
+            ✨ GF: Good Times, Far Places ✨
+            <span class="hashtag">#GeeExplores</span>
         </div>
+    </div>
 
-    </div> <!-- end scroll-content -->
+    <!-- ===== SUPER SMALL FOOTNOTE ===== -->
+    <div class="footnote">
+        <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
+    </div>
 
 </div> <!-- end autumn-card -->
 
