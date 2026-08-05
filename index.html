@@ -37,7 +37,6 @@
             border: 6px solid #fce2b1;
         }
 
-        /* HEADER */
         .header {
             background: rgba(255, 235, 205, 0.8);
             backdrop-filter: blur(12px);
@@ -92,7 +91,6 @@
             margin-top: 15px;
         }
 
-        /* HOTEL */
         .hotel-info {
             background: #e6b071;
             border-radius: 70px;
@@ -108,7 +106,6 @@
             margin-bottom: 15px;
         }
 
-        /* DAY CARDS - Clickable */
         .day-tile {
             margin: 20px 0;
             background: #fff7eada;
@@ -169,7 +166,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Day label */
         .day-label {
             background: #b1582b;
             color: #fff1d4;
@@ -182,7 +178,6 @@
             display: inline-block;
         }
 
-        /* Itinerary content - hidden by default */
         .itinerary-list {
             padding: 20px 30px;
             display: none;
@@ -194,14 +189,8 @@
         }
 
         @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .time-activity-row {
@@ -241,7 +230,19 @@
             min-width: 40px;
         }
 
-        /* Clickable link styles */
+        /* Image thumbnail style */
+        .activity-img {
+            max-height: 60px;
+            border-radius: 12px;
+            border: 3px solid #b8602a;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .activity-img:hover {
+            transform: scale(1.1);
+        }
+
         .map-link {
             color: #b1582b;
             text-decoration: none;
@@ -312,7 +313,6 @@
             margin-right: 8px;
         }
 
-        /* Click instruction */
         .click-hint {
             text-align: center;
             font-size: 1.1rem;
@@ -328,7 +328,6 @@
             margin-right: 10px;
         }
 
-        /* Kimi No Nawa special styling */
         .movie-section {
             background: #fcf3e0;
             border-radius: 40px;
@@ -346,12 +345,30 @@
             margin-right: 10px;
         }
 
+        .fuji-section {
+            background: #fcf3e0;
+            border-radius: 40px;
+            padding: 15px 25px;
+            margin-top: 10px;
+            border: 4px solid #d4925a;
+        }
+        .fuji-section .fuji-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #6b2e1a;
+            margin-bottom: 10px;
+        }
+        .fuji-section .fuji-title i {
+            margin-right: 10px;
+        }
+
         @media (max-width:750px){
             .header h1{font-size:2.6rem;}
             .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .time-badge { flex: 0 0 100px; }
             .day-header .toggle-icon { font-size: 1.4rem; }
             .day-label { font-size: 1rem; padding: 4px 16px; }
+            .activity-img { max-height: 40px; }
         }
     </style>
 </head>
@@ -439,7 +456,7 @@
         </div>
     </div>
 
-    <!-- ========== DAY 5 – Tuesday Oct 13 (Mt Fuji Tour) ========= -->
+    <!-- ========== DAY 5 – Tuesday Oct 13 (Mt Fuji Tour - FULL DETAILED) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 5</span>
@@ -448,8 +465,100 @@
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
-            <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-fuji"></i> Mt Fuji Tour (Kawaguchiko, Chureito)</span></div>
-            <div class="alert-note"><i class="fas fa-camera"></i> best views of Fuji-san</div>
+            <div class="fuji-section">
+                <div class="fuji-title"><i class="fas fa-fuji"></i> Mt Fuji Tour</div>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">5:30 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">7:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-train"></i>
+                    <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/1-ch%C5%8Dme-9-1+Marunouchi,+Chiyoda+City,+Tokyo+100-6701,+Japan/@35.6933785,139.7373124,16979m/data=!3m1!1e3!4m14!4m13!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m5!1m1!1s0x60188bfea85c6919:0x1532fcced443d175!2m2!1d139.7691588!2d35.682111!3e3?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Hotel to JR Tokyo Station</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">8:00 AM</span> <span class="activity-text"><i class="fas fa-bus"></i> Departure</span></div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">10:30 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-mountain"></i>
+                    Arakurayama Sengen Park
+                    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/aetyjas9q4xb8bnc94zr.jpg" alt="Arakurayama Sengen Park" class="activity-img" onclick="window.open('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/aetyjas9q4xb8bnc94zr.jpg','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">11:45 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-clock"></i>
+                    Hikawa Clock Shop
+                    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/ua8mo4xssczmobzkkmfk.jpg" alt="Hikawa Clock Shop" class="activity-img" onclick="window.open('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/ua8mo4xssczmobzkkmfk.jpg','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">12:05 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-utensils"></i>
+                    Lunch Kin Fuji
+                    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1744257673/tbzwj4jog2xuyadsxlwh.jpg" alt="Lunch Kin Fuji" class="activity-img" onclick="window.open('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/v1744257673/tbzwj4jog2xuyadsxlwh.jpg','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">12:35 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-water"></i>
+                    Oshino Hakkai
+                    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/pbrrrnbsqfpsavhvt3iy.jpg" alt="Oshino Hakkai" class="activity-img" onclick="window.open('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/pbrrrnbsqfpsavhvt3iy.jpg','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">2:30 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-store"></i>
+                    Lawson Fujikawaguchiko Town Hall
+                    <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/uadmsqzja8cakc38qrlf.jpg" alt="Lawson Fujikawaguchiko Town Hall" class="activity-img" onclick="window.open('https://res.klook.com/image/upload/fl_lossy.progressive,q_auto/c_fill,w_480/activities/uadmsqzja8cakc38qrlf.jpg','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">3:20 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-clock"></i> 50 min(s) Self-guided
+                    <span class="extra-route-note"><i class="fas fa-walking"></i> explore on your own</span>
+                </span>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-tree"></i> Oishi Park</span></div>
+            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-leaf"></i> Maple Corridor</span></div>
+
+            <div class="time-activity-row">
+                <span class="time-badge"></span>
+                <span class="activity-text">
+                    <i class="fas fa-cherry-blossom"></i>
+                    Kawaguchiko Cherry Blossom Festival
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzS6QZByOx1Jb6bQH4_2AXi0iLrYHw4pCgw&s" alt="Kawaguchiko Cherry Blossom Festival" class="activity-img" onclick="window.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzS6QZByOx1Jb6bQH4_2AXi0iLrYHw4pCgw&s','_blank')">
+                </span>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">5:30 PM</span> <span class="activity-text"><i class="fas fa-undo-alt"></i> Return</span></div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">7:00 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-train"></i>
+                    <a href="https://www.google.com/maps/dir/Tokyo+Sta.+-S+(Marunouchi+South+Exit),+2-ch%C5%8Dme-7+Marunouchi,+Chiyoda+City,+Tokyo+100-0005,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/@35.6938358,139.7604854,7658m/data=!3m2!1e3!4b1!4m15!4m14!1m5!1m1!1s0x60188bfa2fb635d7:0xe178dfef5d7ba8e5!2m2!1d139.764709!2d35.6811418!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!3e3!5i5?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">JR Tokyo Station Marunouchi South Exit</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row"><span class="time-badge">9:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Back to Hotel</span></div>
+
+            <div class="alert-note"><i class="fas fa-camera"></i> Best views of Fuji-san! Don't forget your camera 📸</div>
         </div>
     </div>
 
@@ -607,7 +716,6 @@
 </div> <!-- end autumn-card -->
 
 <script>
-    // Toggle function for day cards
     function toggleDay(element) {
         element.classList.toggle('active');
     }
