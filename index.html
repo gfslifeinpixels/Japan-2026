@@ -169,6 +169,19 @@
             letter-spacing: 0.5px;
         }
 
+        /* Day label */
+        .day-label {
+            background: #b1582b;
+            color: #fff1d4;
+            padding: 6px 25px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 3px solid #fde5b1;
+            box-shadow: 0 4px 0 #6f2e0f;
+            display: inline-block;
+        }
+
         /* Itinerary content - hidden by default */
         .itinerary-list {
             padding: 20px 30px;
@@ -220,6 +233,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .activity-text i {
             font-size: 1.8rem;
@@ -227,17 +241,42 @@
             min-width: 40px;
         }
 
-        /* Special style for "click for images" links */
+        /* Clickable link styles */
+        .map-link {
+            color: #b1582b;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px dotted #b1582b;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .map-link:hover {
+            color: #6b2e1a;
+            border-bottom: 2px solid #6b2e1a;
+        }
+
         .image-link {
             color: #b1582b;
             text-decoration: none;
             font-weight: 700;
             border-bottom: 2px dotted #b1582b;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
         .image-link:hover {
             color: #6b2e1a;
             border-bottom: 2px solid #6b2e1a;
+        }
+
+        .extra-route-note {
+            background: #fcf3e0;
+            border-radius: 20px;
+            padding: 4px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6f2e0f;
+            border: 2px dashed #b8602a;
+            display: inline-block;
         }
 
         .alert-note {
@@ -306,33 +345,13 @@
         .movie-section .movie-title i {
             margin-right: 10px;
         }
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 10px 0;
-        }
-        .image-grid .img-placeholder {
-            background: #e6d5b8;
-            border-radius: 20px;
-            padding: 8px 18px;
-            border: 3px dashed #b8602a;
-            font-weight: 600;
-            color: #5f2c12;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .image-grid .img-placeholder i {
-            font-size: 1.5rem;
-            color: #b1582b;
-        }
 
         @media (max-width:750px){
             .header h1{font-size:2.6rem;}
             .time-activity-row { flex-wrap: wrap; gap: 8px; }
             .time-badge { flex: 0 0 100px; }
             .day-header .toggle-icon { font-size: 1.4rem; }
+            .day-label { font-size: 1rem; padding: 4px 16px; }
         }
     </style>
 </head>
@@ -359,11 +378,12 @@
         <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
     </div>
 
-    <!-- ========== DAY 1 – Friday Oct 9 ========= -->
+    <!-- ========== DAY 1 – Friday Oct 9 (Arrival) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 1</span>
             <span class="day-date">Friday, Oct 9, 2026</span>
+            <span class="day-label"><i class="fas fa-plane-arrival"></i> Arrival</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -375,11 +395,12 @@
         </div>
     </div>
 
-    <!-- ========== DAY 2 – Saturday Oct 10 ========= -->
+    <!-- ========== DAY 2 – Saturday Oct 10 (SHIBUYA SKY) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 2</span>
             <span class="day-date">Saturday, Oct 10, 2026</span>
+            <span class="day-label"><i class="fas fa-building"></i> SHIBUYA SKY</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -389,11 +410,12 @@
         </div>
     </div>
 
-    <!-- ========== DAY 3 – Sunday Oct 11 ========= -->
+    <!-- ========== DAY 3 – Sunday Oct 11 (Kamakura Tour) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 3</span>
             <span class="day-date">Sunday, Oct 11, 2026</span>
+            <span class="day-label"><i class="fas fa-pagoda"></i> Kamakura Tour</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -403,11 +425,12 @@
         </div>
     </div>
 
-    <!-- ========== DAY 4 – Monday Oct 12 ========= -->
+    <!-- ========== DAY 4 – Monday Oct 12 (Nikko Day Trip) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 4</span>
             <span class="day-date">Monday, Oct 12, 2026</span>
+            <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -416,11 +439,12 @@
         </div>
     </div>
 
-    <!-- ========== DAY 5 – Tuesday Oct 13 ========= -->
+    <!-- ========== DAY 5 – Tuesday Oct 13 (Mt Fuji Tour) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 5</span>
             <span class="day-date">Tuesday, Oct 13, 2026</span>
+            <span class="day-label"><i class="fas fa-fuji"></i> Mt Fuji Tour</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -429,56 +453,126 @@
         </div>
     </div>
 
-    <!-- ========== DAY 6 – Wednesday Oct 14 (Kimi No Nawa SPECIAL) ========= -->
+    <!-- ========== DAY 6 – Wednesday Oct 14 (Kimi No Nawa) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 6</span>
             <span class="day-date">Wednesday, Oct 14, 2026</span>
+            <span class="day-label"><i class="fas fa-film"></i> Kimi No Nawa Pilgrimage</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
-            <!-- Movie title header -->
             <div class="movie-section">
                 <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">4:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
-            <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> Asakusa → Shinjuku</span></div>
-            <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> Shinomachi Station</span></div>
-            <div class="time-activity-row"><span class="time-badge">7:00 AM</span> <span class="activity-text"><i class="fas fa-stairs"></i> Suga Shrine Red Stairs</span></div>
 
-            <!-- Image links with clickable text -->
+            <div class="time-activity-row">
+                <span class="time-badge">5:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-train"></i>
+                    <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/35.6795278,139.7195278/@35.683132,139.715085,15520m/am=t/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m0!2m3!6e0!7e2!8j1770354000!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Asakusa → Shinjuku</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">6:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-map-pin"></i>
+                    <a href="https://www.google.com/maps/place/35%C2%B040'46.3%22N+139%C2%B043'10.3%22E/@35.6795381,139.7189788,19z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d35.6795369!4d139.7195259" target="_blank" class="map-link">Shinomachi Station</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">7:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-stairs"></i>
+                    <a href="https://www.google.com/maps/dir/Suga+Shrine,+5-6+Sugach%C5%8D,+Shinjuku+City,+Tokyo,+Japan/35%C2%B041'08.3%22N+139%C2%B043'25.5%22E/35%C2%B041'13.5%22N+139%C2%B043'22.0%22E/Yotsuya+Station,+1+Chome+Yotsuya,+Shinjuku+City,+Tokyo,+Japan/@35.6862815,139.7237734,970m/data=!3m3!1e3!4b1!5s0x60188c8d6f4217f7:0x8f4392e17c562e0!4m26!4m25!1m5!1m1!1s0x6018ece406d552f1:0x440be600a9c6807c!2m2!1d139.7224783!2d35.6852851!1m3!2m2!1d139.72375!2d35.6856389!1m3!2m2!1d139.7227778!2d35.6870833!1m5!1m1!1s0x60188c8a228fd68d:0x5400c08a1242a4f0!2m2!1d139.7302183!2d35.6861525!2m3!6e0!7e2!8j1772856000!3e2?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Suga Shrine Red Stairs</a>
+                </span>
+            </div>
+
             <div class="time-activity-row">
                 <span class="time-badge">On the way</span>
                 <span class="activity-text">
                     <i class="fas fa-camera"></i>
-                    <a href="#" class="image-link" onclick="alert('📸 Taki image would open here'); return false;">📸 Taki image</a>
+                    <a href="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/mitsumata-crossing.jpg" target="_blank" class="image-link">📸 Taki image</a>
                     <span style="margin:0 5px;">&</span>
-                    <a href="#" class="image-link" onclick="alert('📸 Mitsuha image would open here'); return false;">📸 Mitsuha image</a>
+                    <a href="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/suga-shrine-yotsumata.jpg" target="_blank" class="image-link">📸 Mitsuha image</a>
                 </span>
             </div>
 
-            <div class="time-activity-row"><span class="time-badge">9:00 AM</span> <span class="activity-text"><i class="fas fa-tree"></i> Shinjuku Gyoen National Garden</span></div>
+            <div class="time-activity-row">
+                <span class="time-badge">9:00 AM</span>
+                <span class="activity-text">
+                    <i class="fas fa-tree"></i>
+                    <a href="https://www.google.com/maps/dir/Suga+Shrine,+5-6+Sugach%C5%8D,+Shinjuku+City,+Tokyo,+Japan/35%C2%B041'08.3%22N+139%C2%B043'25.5%22E/35%C2%B041'13.5%22N+139%C2%B043'22.0%22E/Shinjuku+Gyoen+National+Garden,+Naitomachi,+Shinjuku+City,+Tokyo,+Japan/Yotsuya+Station,+1+Chome+Yotsuya,+Shinjuku+City,+Tokyo,+Japan/@35.6853961,139.7148399,1432m/data=!3m2!1e3!5s0x60188c8d6f4217f7:0x8f4392e17c562e0!4m32!4m31!1m5!1m1!1s0x6018ece406d552f1:0x440be600a9c6807c!2m2!1d139.7224783!2d35.6852851!1m3!2m2!1d139.72375!2d35.6856389!1m3!2m2!1d139.7227778!2d35.6870833!1m5!1m1!1s0x60188cc21b93233f:0x6a1eb1b5a117f287!2m2!1d139.7100517!2d35.6851763!1m5!1m1!1s0x60188c8a228fd68d:0x5400c08a1242a4f0!2m2!1d139.7302183!2d35.6861525!2m3!6e0!7e2!8j1772856000!3e2?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Shinjuku Gyoen National Garden</a>
+                    <span class="extra-route-note"><i class="fas fa-route"></i> extra route</span>
+                </span>
+            </div>
+
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-map-pin"></i> Yotsuya Station</span></div>
+
             <div class="time-activity-row"><span class="time-badge">11:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> (20 mins commute) ROPPONGI</span></div>
 
-            <div class="time-activity-row"><span class="time-badge">12:00 PM</span> <span class="activity-text"><i class="fas fa-building"></i> TeamLab Borderless Mori Bldg</span></div>
-            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-leaf"></i> Mori Garden</span></div>
-            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-coffee"></i> Salon De the Rond</span></div>
-            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-art"></i> The National Art Center</span></div>
+            <div class="time-activity-row">
+                <span class="time-badge">12:00 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-building"></i>
+                    <a href="https://www.google.com/maps/dir/Yotsuya+Station,+1-ch%C5%8Dme+Yotsuya,+Shinjuku+City,+Tokyo+160-0004,+Japan/teamLab+Borderless:+MORI+Building+DIGITAL+ART+MUSEUM,+Azabudai+Hills+Garden+Plaza+B,+B1+5+Chome-%EF%BC%99+Toranomon,+Minato+City,+Tokyo+106-0041,+Japan/@35.6735782,139.7459949,942m/am=t/data=!3m2!1e3!5s0x60188b9741cfc0d3:0xc91c5c5975739ded!4m14!4m13!1m5!1m1!1s0x60188c8a228fd68d:0x5400c08a1242a4f0!2m2!1d139.7302183!2d35.6861525!1m5!1m1!1s0x601889fad49a9443:0x5831aba3288d2651!2m2!1d139.7432671!2d35.6620689!3e3?entry=ttu&g_ep=EgoyMDI2MDEyNi4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">TeamLab Borderless Mori Bldg</a>
+                </span>
+            </div>
 
-            <div class="time-activity-row"><span class="time-badge">5:00 PM</span> <span class="activity-text"><i class="fas fa-city"></i> Roppongi Hills (Tokyo City View)</span></div>
-            <div class="time-activity-row"><span class="time-badge">8:00 PM</span> <span class="activity-text"><i class="fas fa-train"></i> Roppongi → Asakusa · Back to Hotel</span></div>
+            <div class="time-activity-row">
+                <span class="time-badge"></span>
+                <span class="activity-text">
+                    <i class="fas fa-leaf"></i>
+                    <a href="https://www.google.com/maps/dir/Azabu-Juban+Station/Roppongi+Hills/M%C5%8Dri+Garden/The+National+Art+Center,+Tokyo/Salon+de+Th%C3%A9+ROND/Roppongi+Sta./@35.6609467,139.7257486,1766m/data=!3m2!1e3!5s0x60188b7bf9866e17:0x8139f505624a731c!4m38!4m37!1m5!1m1!1s0x60188b9f05165cdf:0x6af41c4f54a76872!2m2!1d139.7366023!2d35.656399!1m5!1m1!1s0x60188b771049dc33:0x5bfe0248594cc802!2m2!1d139.7292319!2d35.6607397!1m5!1m1!1s0x60188b77b4ec062b:0x23ecb9dbb6be3cc7!2m2!1d139.7304934!2d35.6603225!1m5!1m1!1s0x60188b7bf6ceeb3f:0x4025f2eaf2aa9d18!2m2!1d139.726374!2d35.665289!1m5!1m1!1s0x60188b7bf6ceeb3f:0xf2ca6220813e971c!2m2!1d139.7260296!2d35.664861!1m5!1m1!1s0x60188b826ae3281d:0xf2a258ed2d09f4e!2m2!1d139.7320854!2d35.6632707!3e2?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Mori Garden</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge"></span>
+                <span class="activity-text">
+                    <i class="fas fa-coffee"></i>
+                    <a href="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/salon-de-te-rond.jpg" target="_blank" class="image-link">Salon De the Rond</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge"></span>
+                <span class="activity-text">
+                    <i class="fas fa-art"></i>
+                    <a href="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/roppongi-art-center-1.jpg" target="_blank" class="image-link">The National Art Center</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">5:00 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-city"></i>
+                    <a href="https://files.tofugu.com/articles/japan/2017-10-03-your-name-locations/roppongi-hills.jpg" target="_blank" class="image-link">Roppongi Hills (Tokyo City View)</a>
+                </span>
+            </div>
+
+            <div class="time-activity-row">
+                <span class="time-badge">8:00 PM</span>
+                <span class="activity-text">
+                    <i class="fas fa-train"></i>
+                    <a href="https://www.google.com/maps/dir/Roppongi+Sta.,+9+Chome-7-39+Akasaka,+Minato+City,+Tokyo+107-0052,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/@35.683132,139.7237866,11179m/am=t/data=!3m1!1e3!4m19!4m18!1m5!1m1!1s0x60188b826ae3281d:0xf2a258ed2d09f4e!2m2!1d139.7320854!2d35.6632707!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!2m3!6e0!7e2!8j1772827200!3e3!5i3?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Roppongi → Asakusa · Back to Hotel</a>
+                </span>
+            </div>
 
             <div class="alert-note"><i class="fas fa-star"></i> Your Name pilgrimage complete! ✨</div>
         </div>
     </div>
 
-    <!-- ========== DAY 7 – Thursday Oct 15 ========= -->
+    <!-- ========== DAY 7 – Thursday Oct 15 (Asakusa Historical Tour) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 7</span>
             <span class="day-date">Thursday, Oct 15, 2026</span>
+            <span class="day-label"><i class="fas fa-temple"></i> Asakusa Historical Tour</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
@@ -488,11 +582,12 @@
         </div>
     </div>
 
-    <!-- ========== DAY 8 – Friday Oct 16 ========= -->
+    <!-- ========== DAY 8 – Friday Oct 16 (Departure) ========= -->
     <div class="day-tile" onclick="toggleDay(this)">
         <div class="day-header">
             <span class="day-badge">DAY 8</span>
             <span class="day-date">Friday, Oct 16, 2026</span>
+            <span class="day-label"><i class="fas fa-plane-departure"></i> Departure</span>
             <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
         </div>
         <div class="itinerary-list">
