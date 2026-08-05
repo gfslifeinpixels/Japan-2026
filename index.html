@@ -15,7 +15,8 @@
 
         body {
             background: #f5e6d3;
-            background-image: url('https://live.staticflickr.com/7328/14179190962_e610a6f433_b.jpg');
+            /* NEW SKIN: Tokyo autumn tower & park */
+            background-image: url('https://media.istockphoto.com/id/2239516797/photo/japan-radio-tower-and-shiba-park-in-autumn-tokyo.jpg?s=612x612&w=0&k=20&c=MqseQkGnoYZNjw_e6_gun3YUUW7U93yYVk6yEkGh6Sc=');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -37,8 +38,9 @@
         .autumn-card {
             max-width: 1300px;
             width: 100%;
-            background: rgba(255, 248, 240, 0.82);
-            backdrop-filter: blur(6px);
+            /* OPAQUE white background with slight warmth – skin fully visible */
+            background: rgba(255, 248, 240, 1.0);
+            backdrop-filter: none;  /* no blur, fully opaque */
             border-radius: 40px 40px 30px 30px;
             box-shadow: 0 20px 40px rgba(150, 100, 60, 0.25),
                         0 0 0 6px rgba(255, 215, 140, 0.2),
@@ -48,8 +50,8 @@
         }
 
         .header {
-            background: rgba(255, 242, 228, 0.7);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 242, 228, 0.85);
+            backdrop-filter: none;
             padding: 18px 20px;
             border-radius: 40px 16px 40px 16px;
             border: 4px solid rgba(210, 180, 140, 0.3);
@@ -69,7 +71,7 @@
             line-height: 1.1;
         }
         .grace-badge {
-            background: rgba(200, 160, 120, 0.7);
+            background: rgba(200, 160, 120, 0.8);
             color: #3d2b1c;
             font-size: 0.95rem;
             font-weight: 700;
@@ -79,11 +81,10 @@
             box-shadow: 0 4px 0 rgba(150, 110, 70, 0.2);
             margin-top: 4px;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
             display: inline-block;
         }
         .price-chip {
-            background: rgba(230, 200, 160, 0.8);
+            background: rgba(230, 200, 160, 0.9);
             padding: 10px 20px;
             border-radius: 50px;
             font-weight: 900;
@@ -92,10 +93,9 @@
             border: 3px solid rgba(200, 170, 130, 0.4);
             box-shadow: 0 4px 0 rgba(160, 120, 80, 0.2);
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
         .pax-badge {
-            background: rgba(220, 190, 160, 0.7);
+            background: rgba(220, 190, 160, 0.85);
             padding: 4px 16px;
             border-radius: 40px;
             font-size: 0.9rem;
@@ -105,11 +105,10 @@
             display: inline-block;
             margin-top: 6px;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
 
         .hotel-info {
-            background: rgba(240, 215, 185, 0.8);
+            background: rgba(240, 215, 185, 0.9);
             border-radius: 40px;
             padding: 12px 24px;
             font-size: 1rem;
@@ -122,7 +121,6 @@
             box-shadow: 0 6px 0 rgba(160, 130, 100, 0.15);
             margin-bottom: 12px;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
         .hotel-info i {
             font-size: 1.2rem;
@@ -130,10 +128,10 @@
 
         .day-tile {
             margin: 14px 0;
-            background: rgba(255, 248, 240, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 248, 240, 0.95);
+            backdrop-filter: none;
             border-radius: 40px 16px 40px 16px;
-            border: 4px solid rgba(200, 175, 145, 0.2);
+            border: 4px solid rgba(200, 175, 145, 0.25);
             box-shadow: 8px 12px 0 rgba(160, 130, 100, 0.15), 0 16px 16px -8px rgba(0,0,0,0.05);
             overflow: hidden;
             transition: all 0.3s ease;
@@ -149,8 +147,7 @@
             align-items: center;
             gap: 12px;
             flex-wrap: wrap;
-            background: rgba(240, 215, 185, 0.3);
-            backdrop-filter: blur(4px);
+            background: rgba(240, 215, 185, 0.25);
             padding: 12px 18px;
             border-bottom: 4px solid rgba(180, 150, 120, 0.2);
             transition: background 0.3s ease;
@@ -167,7 +164,7 @@
         }
 
         .day-badge {
-            background: rgba(180, 140, 100, 0.7);
+            background: rgba(180, 140, 100, 0.8);
             color: #3d2b1c;
             font-size: 1.2rem;
             font-weight: 900;
@@ -175,10 +172,9 @@
             border-radius: 40px;
             border: 3px solid rgba(160, 130, 100, 0.3);
             font-family: 'Playfair Display', serif;
-            backdrop-filter: blur(4px);
         }
         .day-date {
-            background: rgba(220, 190, 160, 0.7);
+            background: rgba(220, 190, 160, 0.8);
             color: #3d2b1c;
             padding: 4px 18px;
             border-radius: 40px;
@@ -186,11 +182,10 @@
             font-weight: 600;
             letter-spacing: 0.3px;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
 
         .day-label {
-            background: rgba(200, 165, 130, 0.7);
+            background: rgba(200, 165, 130, 0.8);
             color: #3d2b1c;
             padding: 4px 14px;
             border-radius: 40px;
@@ -200,21 +195,19 @@
             box-shadow: 0 3px 0 rgba(150, 120, 90, 0.15);
             display: inline-block;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
 
         .click-hint {
             text-align: center;
             font-size: 0.85rem;
             color: #5a3a2a;
-            background: rgba(255, 242, 228, 0.6);
+            background: rgba(255, 242, 228, 0.8);
             padding: 6px 16px;
             border-radius: 40px;
             border: 2px solid rgba(180, 150, 120, 0.2);
             display: inline-block;
             margin-bottom: 14px;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
         .click-hint i {
             margin-right: 6px;
@@ -223,8 +216,7 @@
 
         /* ===== FIXED FOOTER STYLES ===== */
         .footer-modern {
-            background: rgba(240, 215, 185, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(240, 215, 185, 0.9);
             color: #3d2b1c;
             padding: 14px 20px;
             border-radius: 40px;
@@ -276,8 +268,7 @@
         }
 
         .footer-handle {
-            background: rgba(200, 165, 130, 0.6);
-            backdrop-filter: blur(4px);
+            background: rgba(200, 165, 130, 0.7);
             padding: 6px 16px;
             border-radius: 30px;
             font-size: 0.85rem;
@@ -346,8 +337,8 @@
             max-width: 900px;
             width: 100%;
             max-height: 90vh;
-            background: rgba(255, 248, 240, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(255, 248, 240, 0.98);
+            backdrop-filter: none;
             border-radius: 40px 20px 40px 20px;
             border: 4px solid rgba(200, 175, 145, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
@@ -369,7 +360,6 @@
             justify-content: space-between;
             padding: 14px 20px;
             background: rgba(240, 215, 185, 0.3);
-            backdrop-filter: blur(4px);
             border-radius: 36px 16px 0 0;
             border-bottom: 4px solid rgba(200, 170, 140, 0.2);
             position: sticky;
@@ -428,7 +418,6 @@
             text-align: center;
             border: 2px solid rgba(180, 150, 120, 0.2);
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
         .modal-body .activity-text {
             flex: 1;
@@ -449,7 +438,7 @@
         }
 
         .modal-body .alert-note {
-            background: rgba(255, 242, 228, 0.5);
+            background: rgba(255, 242, 228, 0.6);
             border-radius: 30px;
             padding: 6px 16px;
             margin: 6px 0 0 0;
@@ -459,19 +448,17 @@
             color: #3d2b1c;
             font-family: 'Lato', sans-serif;
             font-size: 0.8rem;
-            backdrop-filter: blur(4px);
         }
 
         .modal-body .movie-section,
         .modal-body .fuji-section,
         .modal-body .shibuya-section,
         .modal-body .disney-section {
-            background: rgba(255, 248, 240, 0.5);
+            background: rgba(255, 248, 240, 0.6);
             border-radius: 24px;
             padding: 10px 16px;
             margin-bottom: 10px;
             border: 3px solid rgba(200, 170, 140, 0.2);
-            backdrop-filter: blur(4px);
         }
         .modal-body .movie-section .movie-title,
         .modal-body .fuji-section .fuji-title,
@@ -529,7 +516,7 @@
         }
 
         .modal-body .extra-route-note {
-            background: rgba(255, 248, 240, 0.5);
+            background: rgba(255, 248, 240, 0.6);
             border-radius: 14px;
             padding: 2px 12px;
             font-size: 0.7rem;
@@ -538,7 +525,6 @@
             border: 2px dashed rgba(180, 150, 120, 0.3);
             display: inline-block;
             font-family: 'Lato', sans-serif;
-            backdrop-filter: blur(4px);
         }
 
         .modal-body .activity-img {
