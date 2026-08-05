@@ -15,7 +15,6 @@
 
         body {
             background: #f5e6d3;
-            /* ONLY the requested skin – no fallback */
             background-image: url('https://media.istockphoto.com/id/2239516797/photo/japan-radio-tower-and-shiba-park-in-autumn-tokyo.jpg?s=612x612&w=0&k=20&c=MqseQkGnoYZNjw_e6_gun3YUUW7U93yYVk6yEkGh6Sc=');
             background-size: cover;
             background-position: center;
@@ -38,7 +37,6 @@
         .autumn-card {
             max-width: 1300px;
             width: 100%;
-            /* FULLY TRANSPARENT background – skin shows through clearly */
             background: transparent;
             backdrop-filter: none;
             border-radius: 40px 40px 30px 30px;
@@ -68,6 +66,8 @@
             text-shadow: 3px 3px 0 rgba(200, 160, 120, 0.3), 5px 5px 0 rgba(255, 255, 255, 0.4);
             line-height: 1.1;
         }
+
+        /* ===== CLICKABLE GRACE BADGE ===== */
         .grace-badge {
             background: rgba(200, 160, 120, 0.85);
             color: #2d1f12;
@@ -80,7 +80,13 @@
             margin-top: 4px;
             font-family: 'Lato', sans-serif;
             display: inline-block;
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
+        .grace-badge:hover {
+            transform: scale(1.02);
+        }
+
         .price-chip {
             background: rgba(230, 200, 160, 0.9);
             padding: 10px 20px;
@@ -215,7 +221,7 @@
             color: #b08060;
         }
 
-        /* ===== FIXED FOOTER STYLES ===== */
+        /* ===== FOOTER ===== */
         .footer-modern {
             background: rgba(240, 215, 185, 0.85);
             backdrop-filter: blur(4px);
@@ -572,6 +578,167 @@
             transform: scale(1.02);
         }
 
+        /* ===== ABOUT ME OVERLAY ===== */
+        .about-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 16px;
+            animation: fadeIn 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .about-overlay.active {
+            display: flex;
+        }
+
+        .about-content {
+            max-width: 750px;
+            width: 100%;
+            max-height: 92vh;
+            background: linear-gradient(145deg, rgba(30, 30, 60, 0.96), rgba(20, 20, 45, 0.96));
+            backdrop-filter: blur(16px);
+            border-radius: 40px 20px 40px 20px;
+            border: 2px solid #c49a7a;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(196, 154, 122, 0.15);
+            padding: 0;
+            overflow-y: auto;
+            animation: slideUp 0.4s ease;
+            position: relative;
+        }
+
+        .about-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-bottom: 2px solid rgba(196, 154, 122, 0.2);
+            position: sticky;
+            top: 0;
+            background: rgba(20, 20, 45, 0.9);
+            backdrop-filter: blur(8px);
+            z-index: 5;
+            border-radius: 40px 20px 0 0;
+        }
+
+        .about-header .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #c49a7a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-header .about-title i {
+            color: #b08060;
+            font-size: 1.6rem;
+        }
+
+        .about-close {
+            background: rgba(196, 154, 122, 0.15);
+            border: 2px solid rgba(196, 154, 122, 0.25);
+            color: #c49a7a;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-close:hover {
+            background: rgba(196, 154, 122, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .about-body {
+            padding: 24px 28px 30px;
+        }
+
+        .about-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #c49a7a;
+            object-fit: cover;
+            margin: 0 auto 20px auto;
+            display: block;
+            box-shadow: 0 0 40px rgba(196, 154, 122, 0.15);
+        }
+
+        .about-body .story-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #c49a7a;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .about-body .story-sub {
+            text-align: center;
+            color: #c0b0a0;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .about-body .story-sub i {
+            color: #b08060;
+        }
+
+        .story-text {
+            color: #d0c8b8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .story-text p {
+            margin-bottom: 16px;
+        }
+
+        .story-text .highlight {
+            color: #c49a7a;
+            font-weight: 700;
+        }
+
+        .story-text .highlight-pink {
+            color: #b08060;
+            font-weight: 600;
+        }
+
+        .story-divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, rgba(196, 154, 122, 0.3), transparent);
+            margin: 20px 0;
+        }
+
+        .story-tagline {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #c49a7a;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .story-tagline i {
+            color: #b08060;
+        }
+
         /* Mobile-first adjustments */
         @media (max-width: 480px) {
             body { padding: 10px 8px; font-size: 13px; }
@@ -617,6 +784,16 @@
             .modal-body .shibuya-section,
             .modal-body .disney-section { padding: 8px 12px; }
             .modal-body .extra-route-note { font-size: 0.6rem; padding: 2px 8px; }
+            .about-content { border-radius: 28px 14px 28px 14px; }
+            .about-header { padding: 12px 16px; }
+            .about-header .about-title { font-size: 1.1rem; }
+            .about-close { width: 34px; height: 34px; font-size: 1rem; }
+            .about-body { padding: 16px 16px 22px; }
+            .about-avatar-large { width: 90px; height: 90px; }
+            .about-body .story-title { font-size: 1.4rem; }
+            .story-text { font-size: 0.85rem; line-height: 1.7; }
+            .story-tagline { font-size: 1rem; }
+            .about-body .story-sub { font-size: 0.8rem; }
         }
 
         @media (max-width: 380px) {
@@ -635,7 +812,9 @@
     <div class="header">
         <div>
             <h1>🍁 DIY JAPAN<br>LAND ARRANGEMENT 🍁</h1>
-            <div class="grace-badge">✨ by Grace (@theGFsadvise) ✨</div>
+            <div class="grace-badge" onclick="openAbout()">
+                ✨ by Grace (@theGFsadvise) ✨
+            </div>
             <div class="pax-badge"><i class="fas fa-users"></i> 3 pax · autumn 2026</div>
         </div>
         <div class="price-chip"><i class="fas fa-tag"></i> ₱50,000/pax*</div>
@@ -733,7 +912,7 @@
         </div>
     </div>
 
-    <!-- ===== FIXED FOOTER WITH SMALLER HANDLE ===== -->
+    <!-- ===== FOOTER ===== -->
     <div class="footer-modern">
         <div class="footer-contact">
             <span style="font-size: 0.8rem;">📩 questions? contact:</span>
@@ -1015,8 +1194,69 @@
     </div>
 </div>
 
+<!-- ===== ABOUT ME OVERLAY ===== -->
+<div class="about-overlay" id="aboutOverlay" onclick="closeAboutOutside(event)">
+    <div class="about-content">
+        <div class="about-header">
+            <div class="about-title">
+                <i class="fas fa-user-astronaut"></i> About Me
+            </div>
+            <button class="about-close" onclick="closeAbout()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="about-body">
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="about-avatar-large">
+
+            <div class="story-title">✈️ Good Times, Far Places</div>
+            <div class="story-sub">✨ <i class="fas fa-heart"></i> Grace · @theGFsadvise <i class="fas fa-heart"></i> ✨</div>
+
+            <div class="story-text">
+                <p>
+                    <span class="highlight">I'm Grace</span> — a curious soul with a <span class="highlight-pink">passion for exploration</span> and a deep love for discovering the world's hidden gems.
+                    My journey began with a simple belief: <span class="highlight">travel is more than just seeing new places; it's about collecting moments, flavors, and stories.</span>
+                </p>
+
+                <p>
+                    From the <span class="highlight-pink">cherry blossom-lined streets of Tokyo</span> to the <span class="highlight">bustling night markets of Seoul</span>
+                    and the <span class="highlight-pink">ancient wonders of Beijing</span>, every destination has a story waiting to be told.
+                    I don't just plan trips — I curate <span class="highlight">experiences</span> that stay with you long after the journey ends.
+                </p>
+
+                <hr class="story-divider" />
+
+                <p>
+                    <span class="highlight">🌏 Why GF Travel Itineraries?</span><br />
+                    The <span class="highlight">"GF"</span> stands for <span class="highlight-pink">"Good Times, Far Places"</span> — because that's exactly what I believe travel should be.
+                    Whether you're a <span class="highlight">solo adventurer</span>, a <span class="highlight-pink">couple</span>, or a <span class="highlight">group of friends</span>, I'm here to help you turn your travel dreams into reality.
+                </p>
+
+                <p>
+                    <span class="highlight-pink">✨ What I offer:</span><br />
+                    🗺️ Handcrafted, <span class="highlight">day-by-day itineraries</span><br />
+                    🏨 <span class="highlight-pink">Curated hotel recommendations</span> for every budget<br />
+                    🍜 <span class="highlight">Local food guides</span> to satisfy every craving<br />
+                    📸 <span class="highlight-pink">Instagram-worthy spots</span> you won't want to miss<br />
+                    💡 <span class="highlight">Insider tips</span> that only locals know
+                </p>
+
+                <hr class="story-divider" />
+
+                <p>
+                    <span class="highlight">💫 Let's explore together.</span><br />
+                    Whether you're planning your <span class="highlight-pink">first big trip</span> or your <span class="highlight">fiftieth</span>, I'm here to make every journey
+                    <span class="highlight-pink">effortless, memorable, and full of good times.</span>
+                </p>
+            </div>
+
+            <div class="story-tagline">
+                <i class="fas fa-compass"></i> Good Times, Far Places <i class="fas fa-compass"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- ===== JAVASCRIPT ===== -->
 <script>
+    // Modal functions
     function openModal(id) {
         document.getElementById(id).classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -1033,12 +1273,34 @@
         }
     }
 
+    // About Me functions
+    function openAbout() {
+        document.getElementById('aboutOverlay').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeAbout() {
+        document.getElementById('aboutOverlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    function closeAboutOutside(event) {
+        if (event.target === document.getElementById('aboutOverlay')) {
+            closeAbout();
+        }
+    }
+
+    // Keyboard shortcuts
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const openModals = document.querySelectorAll('.modal-overlay.active');
             openModals.forEach(function(modal) {
                 closeModal(modal.id);
             });
+            const about = document.getElementById('aboutOverlay');
+            if (about.classList.contains('active')) {
+                closeAbout();
+            }
         }
     });
 </script>
