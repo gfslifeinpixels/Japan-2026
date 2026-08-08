@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* RESET & BASE */
         * {
             margin: 0;
             padding: 0;
@@ -15,7 +16,6 @@
 
         body {
             background: #f5e6d3;
-            /* NEW BACKGROUND: autumn art from WIX */
             background-image: url('https://media.easy-peasy.ai/e77bead2-5de6-4471-89e5-fae65adfa93d/8d68b604-66f9-4fa6-9c39-dfd37fc75d3b_medium.webp');
             background-size: cover;
             background-position: center;
@@ -25,16 +25,166 @@
             display: flex;
             justify-content: center;
             min-height: 100vh;
-            animation: subtleZoom 25s ease-in-out infinite alternate;
             font-size: 14px;
+            overflow: hidden; /* prevent scroll on splash */
         }
 
-        @keyframes subtleZoom {
+        /* ===== SPLASH SCREEN (full page) ===== */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+            background-image: url('https://media.easy-peasy.ai/e77bead2-5de6-4471-89e5-fae65adfa93d/8d68b604-66f9-4fa6-9c39-dfd37fc75d3b_medium.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            cursor: pointer;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            animation: subtleZoomSplash 20s ease-in-out infinite alternate;
+            color: #fff;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.7);
+            overflow: hidden;
+        }
+
+        @keyframes subtleZoomSplash {
             0% { background-size: 110% 110%; background-position: center center; }
-            50% { background-size: 120% 120%; background-position: 60% 40%; }
+            50% { background-size: 125% 125%; background-position: 60% 40%; }
             100% { background-size: 110% 110%; background-position: center center; }
         }
 
+        #splash-screen.hidden {
+            opacity: 0;
+            transform: scale(1.05);
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .splash-content {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(20, 20, 40, 0.55);
+            backdrop-filter: blur(8px);
+            padding: 40px 36px 50px;
+            border-radius: 60px 20px 60px 20px;
+            border: 2px solid rgba(255, 215, 140, 0.25);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .splash-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+        }
+
+        .splash-title span {
+            color: #f5cba0;
+        }
+
+        .splash-sub {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #f0e6d8;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .splash-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #f5cba0, transparent);
+            margin: 12px auto 24px;
+            border-radius: 4px;
+        }
+
+        /* checklist */
+        .checklist {
+            text-align: left;
+            display: inline-block;
+            margin: 10px auto 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #f0ece6;
+            background: rgba(0,0,0,0.2);
+            padding: 16px 28px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,215,140,0.15);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 6px 0;
+            font-size: 1rem;
+        }
+
+        .checklist-item i {
+            width: 24px;
+            color: #f5cba0;
+            font-size: 1.1rem;
+        }
+
+        .splash-tap {
+            margin-top: 30px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            animation: pulse 2s ease-in-out infinite;
+            letter-spacing: 2px;
+        }
+
+        .splash-tap i {
+            margin-right: 8px;
+            color: #f5cba0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        /* ===== FALLING LEAVES CANVAS ===== */
+        #leaves-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* ===== MAIN CONTENT (hidden until splash is dismissed) ===== */
+        #main-content {
+            opacity: 0;
+            transition: opacity 1.2s ease;
+            width: 100%;
+            max-width: 1300px;
+            pointer-events: none;
+        }
+
+        #main-content.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ===== AUTUMN CARD (original styles) ===== */
         .autumn-card {
             max-width: 1300px;
             width: 100%;
@@ -221,7 +371,6 @@
             color: #b08060;
         }
 
-        /* ===== FOOTER ===== */
         .footer-modern {
             background: rgba(240, 215, 185, 0.85);
             backdrop-filter: blur(4px);
@@ -321,7 +470,7 @@
             color: #b08060;
         }
 
-        /* ===== MODAL STYLES ===== */
+        /* ===== MODAL STYLES (unchanged) ===== */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -337,16 +486,13 @@
             padding: 16px 12px;
             animation: fadeIn 0.3s ease;
         }
-
         .modal-overlay.active {
             display: flex;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         .modal-content {
             max-width: 900px;
             width: 100%;
@@ -361,12 +507,10 @@
             animation: slideUp 0.3s ease;
             font-family: 'Lato', sans-serif;
         }
-
         @keyframes slideUp {
             from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         .modal-header {
             display: flex;
             align-items: center;
@@ -404,11 +548,9 @@
             background: rgba(200, 165, 130, 0.8);
             transform: scale(1.1);
         }
-
         .modal-body {
             padding: 16px 18px 20px;
         }
-
         .modal-body .time-activity-row {
             display: flex;
             align-items: baseline;
@@ -449,7 +591,6 @@
             color: #b08060;
             min-width: 28px;
         }
-
         .modal-body .alert-note {
             background: rgba(255, 242, 228, 0.6);
             border-radius: 30px;
@@ -462,7 +603,6 @@
             font-family: 'Lato', sans-serif;
             font-size: 0.8rem;
         }
-
         .modal-body .movie-section,
         .modal-body .fuji-section,
         .modal-body .shibuya-section,
@@ -488,7 +628,6 @@
         .modal-body .disney-section .disney-title i {
             margin-right: 6px;
         }
-
         .modal-body .map-link {
             color: #7a4a2a;
             text-decoration: none;
@@ -501,7 +640,6 @@
             color: #3d2b1c;
             border-bottom: 2px solid rgba(160, 130, 100, 0.6);
         }
-
         .modal-body .image-link {
             color: #7a4a2a;
             text-decoration: none;
@@ -514,7 +652,6 @@
             color: #3d2b1c;
             border-bottom: 2px solid rgba(160, 130, 100, 0.6);
         }
-
         .modal-body .video-link {
             color: #7a4a2a;
             text-decoration: none;
@@ -527,7 +664,6 @@
             color: #3d2b1c;
             border-bottom: 2px solid rgba(160, 130, 100, 0.6);
         }
-
         .modal-body .extra-route-note {
             background: rgba(255, 248, 240, 0.6);
             border-radius: 14px;
@@ -539,7 +675,6 @@
             display: inline-block;
             font-family: 'Lato', sans-serif;
         }
-
         .modal-body .activity-img {
             max-height: 40px;
             border-radius: 10px;
@@ -551,7 +686,6 @@
         .modal-body .activity-img:hover {
             transform: scale(1.1);
         }
-
         .modal-body .scene-photo {
             max-height: 80px;
             border-radius: 12px;
@@ -563,7 +697,6 @@
         .modal-body .scene-photo:hover {
             transform: scale(1.05);
         }
-
         .modal-body .disney-img {
             max-height: 120px;
             width: 100%;
@@ -595,11 +728,9 @@
             animation: fadeIn 0.3s ease;
             overflow-y: auto;
         }
-
         .about-overlay.active {
             display: flex;
         }
-
         .about-content {
             max-width: 750px;
             width: 100%;
@@ -614,7 +745,6 @@
             animation: slideUp 0.4s ease;
             position: relative;
         }
-
         .about-header {
             display: flex;
             align-items: center;
@@ -628,7 +758,6 @@
             z-index: 5;
             border-radius: 40px 20px 0 0;
         }
-
         .about-header .about-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
@@ -637,12 +766,10 @@
             align-items: center;
             gap: 12px;
         }
-
         .about-header .about-title i {
             color: #b08060;
             font-size: 1.6rem;
         }
-
         .about-close {
             background: rgba(196, 154, 122, 0.15);
             border: 2px solid rgba(196, 154, 122, 0.25);
@@ -661,11 +788,9 @@
             background: rgba(196, 154, 122, 0.3);
             transform: rotate(90deg);
         }
-
         .about-body {
             padding: 24px 28px 30px;
         }
-
         .about-avatar-large {
             width: 120px;
             height: 120px;
@@ -676,7 +801,6 @@
             display: block;
             box-shadow: 0 0 40px rgba(196, 154, 122, 0.15);
         }
-
         .about-body .story-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -684,7 +808,6 @@
             text-align: center;
             margin-bottom: 6px;
         }
-
         .about-body .story-sub {
             text-align: center;
             color: #c0b0a0;
@@ -693,39 +816,32 @@
             font-weight: 400;
             letter-spacing: 0.5px;
         }
-
         .about-body .story-sub i {
             color: #b08060;
         }
-
         .story-text {
             color: #d0c8b8;
             font-size: 0.95rem;
             line-height: 1.8;
             font-weight: 400;
         }
-
         .story-text p {
             margin-bottom: 16px;
         }
-
         .story-text .highlight {
             color: #c49a7a;
             font-weight: 700;
         }
-
         .story-text .highlight-pink {
             color: #b08060;
             font-weight: 600;
         }
-
         .story-divider {
             border: none;
             height: 2px;
             background: linear-gradient(to right, transparent, rgba(196, 154, 122, 0.3), transparent);
             margin: 20px 0;
         }
-
         .story-tagline {
             text-align: center;
             font-family: 'Playfair Display', serif;
@@ -734,12 +850,11 @@
             margin-top: 10px;
             letter-spacing: 1px;
         }
-
         .story-tagline i {
             color: #b08060;
         }
 
-        /* Mobile-first adjustments */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 480px) {
             body { padding: 10px 8px; font-size: 13px; }
             .autumn-card { padding: 16px 12px 14px; border-radius: 28px; }
@@ -794,6 +909,12 @@
             .story-text { font-size: 0.85rem; line-height: 1.7; }
             .story-tagline { font-size: 1rem; }
             .about-body .story-sub { font-size: 0.8rem; }
+
+            /* splash mobile */
+            .splash-title { font-size: 2.2rem; }
+            .splash-content { padding: 28px 20px 36px; }
+            .checklist { padding: 12px 18px; font-size: 0.85rem; }
+            .checklist-item { font-size: 0.85rem; gap: 10px; }
         }
 
         @media (max-width: 380px) {
@@ -806,139 +927,156 @@
     </style>
 </head>
 <body>
-<div class="autumn-card">
 
-    <!-- HEADER -->
-    <div class="header">
-        <div>
-            <h1>🍁 DIY JAPAN<br>LAND ARRANGEMENT 🍁</h1>
-            <div class="grace-badge" onclick="openAbout()">
-                ✨ by Grace (@theGFsadvise) ✨
+<!-- ===== SPLASH SCREEN ===== -->
+<div id="splash-screen" onclick="dismissSplash()">
+    <canvas id="leaves-canvas"></canvas>
+
+    <div class="splash-content">
+        <div class="splash-title">🍁 <span>Ready</span> to Explore <span>Tokyo</span>? 🍁</div>
+        <div class="splash-divider"></div>
+        <div class="splash-sub">🌿 Your autumn adventure starts here</div>
+
+        <!-- Travel Checklist -->
+        <div class="checklist">
+            <div class="checklist-item"><i class="fas fa-passport"></i> Passport & visa ready</div>
+            <div class="checklist-item"><i class="fas fa-wifi"></i> Pocket WiFi / eSIM</div>
+            <div class="checklist-item"><i class="fas fa-yen-sign"></i> Japanese Yen (cash)</div>
+            <div class="checklist-item"><i class="fas fa-cloud-sun"></i> Autumn layers (jacket, scarf)</div>
+            <div class="checklist-item"><i class="fas fa-shoe-prints"></i> Comfortable walking shoes</div>
+            <div class="checklist-item"><i class="fas fa-camera"></i> Camera / phone for memories</div>
+        </div>
+
+        <div class="splash-tap"><i class="fas fa-hand-pointer"></i> Tap anywhere to begin</div>
+    </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div id="main-content">
+    <div class="autumn-card">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div>
+                <h1>🍁 DIY JAPAN<br>LAND ARRANGEMENT 🍁</h1>
+                <div class="grace-badge" onclick="openAbout()">
+                    ✨ by Grace (@theGFsadvise) ✨
+                </div>
+                <div class="pax-badge"><i class="fas fa-users"></i> 3 pax · autumn 2026</div>
             </div>
-            <div class="pax-badge"><i class="fas fa-users"></i> 3 pax · autumn 2026</div>
+            <div class="price-chip"><i class="fas fa-tag"></i> ₱50,000/pax*</div>
         </div>
-        <div class="price-chip"><i class="fas fa-tag"></i> ₱50,000/pax*</div>
-    </div>
 
-    <!-- HOTEL APA Asakusa-Ekimae -->
-    <div class="hotel-info">
-        <i class="fas fa-hotel fa-2x"></i> APA Hotel Asakusa-Ekimae · 7 nights (Oct 9–16)
-    </div>
-
-    <!-- Click Hint -->
-    <div class="click-hint">
-        <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
-    </div>
-
-    <!-- ===== DAY CARDS ===== -->
-
-    <!-- DAY 1 – Friday, Oct 9, 2026 · Arrival -->
-    <div class="day-tile" onclick="openModal('modal-day1')">
-        <div class="day-header">
-            <span class="day-badge">DAY 1</span>
-            <span class="day-date">Friday, Oct 9, 2026</span>
-            <span class="day-label"><i class="fas fa-plane-arrival"></i> Arrival</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <!-- HOTEL APA Asakusa-Ekimae -->
+        <div class="hotel-info">
+            <i class="fas fa-hotel fa-2x"></i> APA Hotel Asakusa-Ekimae · 7 nights (Oct 9–16)
         </div>
-    </div>
 
-    <!-- DAY 2 – Saturday, Oct 10, 2026 · SHIBUYA SKY -->
-    <div class="day-tile" onclick="openModal('modal-day2')">
-        <div class="day-header">
-            <span class="day-badge">DAY 2</span>
-            <span class="day-date">Saturday, Oct 10, 2026</span>
-            <span class="day-label"><i class="fas fa-building"></i> SHIBUYA SKY</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <!-- Click Hint -->
+        <div class="click-hint">
+            <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
         </div>
-    </div>
 
-    <!-- DAY 3 – Sunday, Oct 11, 2026 · Disneyland Adventure -->
-    <div class="day-tile" onclick="openModal('modal-day3')">
-        <div class="day-header">
-            <span class="day-badge">DAY 3</span>
-            <span class="day-date">Sunday, Oct 11, 2026</span>
-            <span class="day-label"><i class="fas fa-castle"></i> Disneyland Adventure</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <!-- ===== DAY CARDS ===== -->
+        <div class="day-tile" onclick="openModal('modal-day1')">
+            <div class="day-header">
+                <span class="day-badge">DAY 1</span>
+                <span class="day-date">Friday, Oct 9, 2026</span>
+                <span class="day-label"><i class="fas fa-plane-arrival"></i> Arrival</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- DAY 4 – Monday, Oct 12, 2026 · Nikko Day Trip -->
-    <div class="day-tile" onclick="openModal('modal-day4')">
-        <div class="day-header">
-            <span class="day-badge">DAY 4</span>
-            <span class="day-date">Monday, Oct 12, 2026</span>
-            <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <div class="day-tile" onclick="openModal('modal-day2')">
+            <div class="day-header">
+                <span class="day-badge">DAY 2</span>
+                <span class="day-date">Saturday, Oct 10, 2026</span>
+                <span class="day-label"><i class="fas fa-building"></i> SHIBUYA SKY</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- DAY 5 – Tuesday, Oct 13, 2026 · Mt Fuji Tour -->
-    <div class="day-tile" onclick="openModal('modal-day5')">
-        <div class="day-header">
-            <span class="day-badge">DAY 5</span>
-            <span class="day-date">Tuesday, Oct 13, 2026</span>
-            <span class="day-label"><i class="fas fa-fuji"></i> Mt Fuji Tour</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <div class="day-tile" onclick="openModal('modal-day3')">
+            <div class="day-header">
+                <span class="day-badge">DAY 3</span>
+                <span class="day-date">Sunday, Oct 11, 2026</span>
+                <span class="day-label"><i class="fas fa-castle"></i> Disneyland Adventure</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- DAY 6 – Wednesday, Oct 14, 2026 · Kimi No Nawa Pilgrimage -->
-    <div class="day-tile" onclick="openModal('modal-day6')">
-        <div class="day-header">
-            <span class="day-badge">DAY 6</span>
-            <span class="day-date">Wednesday, Oct 14, 2026</span>
-            <span class="day-label"><i class="fas fa-film"></i> Kimi No Nawa Pilgrimage</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <div class="day-tile" onclick="openModal('modal-day4')">
+            <div class="day-header">
+                <span class="day-badge">DAY 4</span>
+                <span class="day-date">Monday, Oct 12, 2026</span>
+                <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- DAY 7 – Thursday, Oct 15, 2026 · Asakusa Historical Tour -->
-    <div class="day-tile" onclick="openModal('modal-day7')">
-        <div class="day-header">
-            <span class="day-badge">DAY 7</span>
-            <span class="day-date">Thursday, Oct 15, 2026</span>
-            <span class="day-label"><i class="fas fa-temple"></i> Asakusa Historical Tour</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <div class="day-tile" onclick="openModal('modal-day5')">
+            <div class="day-header">
+                <span class="day-badge">DAY 5</span>
+                <span class="day-date">Tuesday, Oct 13, 2026</span>
+                <span class="day-label"><i class="fas fa-fuji"></i> Mt Fuji Tour</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- DAY 8 – Friday, Oct 16, 2026 · Departure -->
-    <div class="day-tile" onclick="openModal('modal-day8')">
-        <div class="day-header">
-            <span class="day-badge">DAY 8</span>
-            <span class="day-date">Friday, Oct 16, 2026</span>
-            <span class="day-label"><i class="fas fa-plane-departure"></i> Departure</span>
-            <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+        <div class="day-tile" onclick="openModal('modal-day6')">
+            <div class="day-header">
+                <span class="day-badge">DAY 6</span>
+                <span class="day-date">Wednesday, Oct 14, 2026</span>
+                <span class="day-label"><i class="fas fa-film"></i> Kimi No Nawa Pilgrimage</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- ===== FOOTER ===== -->
-    <div class="footer-modern">
-        <div class="footer-contact">
-            <span style="font-size: 0.8rem;">📩 questions? contact:</span>
-            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
-            </a>
-            <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
+        <div class="day-tile" onclick="openModal('modal-day7')">
+            <div class="day-header">
+                <span class="day-badge">DAY 7</span>
+                <span class="day-date">Thursday, Oct 15, 2026</span>
+                <span class="day-label"><i class="fas fa-temple"></i> Asakusa Historical Tour</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-        <div class="footer-handle">
-            ✨ GF: Good Times, Far Places ✨
-            <span class="hashtag">#GeeExplores</span>
+
+        <div class="day-tile" onclick="openModal('modal-day8')">
+            <div class="day-header">
+                <span class="day-badge">DAY 8</span>
+                <span class="day-date">Friday, Oct 16, 2026</span>
+                <span class="day-label"><i class="fas fa-plane-departure"></i> Departure</span>
+                <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+            </div>
         </div>
-    </div>
 
-    <!-- ===== SUPER SMALL FOOTNOTE ===== -->
-    <div class="footnote">
-        <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
-    </div>
+        <!-- ===== FOOTER ===== -->
+        <div class="footer-modern">
+            <div class="footer-contact">
+                <span style="font-size: 0.8rem;">📩 questions? contact:</span>
+                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace profile" class="contact-avatar">
+                </a>
+                <a href="https://www.linkedin.com/in/thegfsadvise/" target="_blank" class="contact-name">Grace (@theGFsadvise)</a>
+            </div>
+            <div class="footer-handle">
+                ✨ GF: Good Times, Far Places ✨
+                <span class="hashtag">#GeeExplores</span>
+            </div>
+        </div>
 
-</div> <!-- end autumn-card -->
+        <!-- ===== FOOTNOTE ===== -->
+        <div class="footnote">
+            <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
+        </div>
+
+    </div> <!-- end autumn-card -->
+</div> <!-- end main-content -->
 
 <!-- ============================================================ -->
-<!-- MODALS -->
+<!-- MODALS (unchanged) -->
 <!-- ============================================================ -->
 
-<!-- MODAL DAY 1 -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
@@ -955,7 +1093,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 2 -->
 <div class="modal-overlay" id="modal-day2" onclick="closeModalOutside(event, 'modal-day2')">
     <div class="modal-content">
         <div class="modal-header">
@@ -963,9 +1100,7 @@
             <button class="modal-close" onclick="closeModal('modal-day2')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="shibuya-section">
-                <div class="shibuya-title"><i class="fas fa-building"></i> SHIBUYA SKY</div>
-            </div>
+            <div class="shibuya-section"><div class="shibuya-title"><i class="fas fa-building"></i> SHIBUYA SKY</div></div>
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
             <div class="time-activity-row">
                 <span class="time-badge">6:00 AM</span>
@@ -985,36 +1120,6 @@
                     <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
                 </span>
             </div>
-            <div class="time-activity-row">
-                <span class="time-badge"></span>
-                <span class="activity-text">
-                    <i class="fas fa-temple"></i>
-                    <a href="https://www.google.com/maps/dir/Shibuya+Scramble+Square,+2+Chome-24-12+Shibuya,+Tokyo+150-0002,+Japan/Hachiko+Statue,+2+Chome-1+Dogenzaka,+Shibuya,+Tokyo+150-0043,+Japan/Starbucks+Coffee+-+Shibuya+Tsutaya,+6QFRONT+2F+5+Chome-1-21+Udagawacho,+Shibuya,+Tokyo+150-0042,+Japan/Yoyogi+Park,+2-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-0052,+Japan/Cherry+Blossoms+Garden,+Japan,+%E3%80%92151-0052+Tokyo,+Shibuya,+Yoyogikamizonocho,+2,+%E7%A5%9E%E5%8D%97%EF%BC%92%E4%B8%81%E7%9B%AE/Yoyogi+Park+Clock+Tower,+2-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-0052,+Japan/Meiji+Jingu,+1-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-8557,+Japan/Takeshita+St,+1-ch%C5%8Dme+Jing%C5%ABmae,+Shibuya,+Tokyo+150-0001,+Japan/@35.6674176,139.6896506,3830m/data=!3m3!1e3!4b1!5s0x60188ca81a158b2f:0x9070f25ce2bc2f7b!4m50!4m49!1m5!1m1!1s0x60188b8427e1c0b1:0x78f6e23397061d6f!2m2!1d139.7022621!2d35.6584638!1m5!1m1!1s0x60188b57efbd57c7:0x217e9d9fe306fba!2m2!1d139.7006293!2d35.6590579!1m5!1m1!1s0x60188ca8194a6235:0x7e2eef92f5e67266!2m2!1d139.7004154!2d35.6598098!1m5!1m1!1s0x60188cb479620a33:0x34bcc78ce7f8bf3e!2m2!1d139.6949656!2d35.6700649!1m5!1m1!1s0x60188cb3b9275a85:0x15560143c65670f5!2m2!1d139.6947382!2d35.6694283!1m5!1m1!1s0x60188cb01936530f:0x93dcfb878a734199!2m2!1d139.7007898!2d35.6690816!1m5!1m1!1s0x60188cb79a4c26e5:0x8fca893849103f73!2m2!1d139.6993259!2d35.6763976!1m5!1m1!1s0x60188cbaf1de5995:0xc2becc88ea4e7eb5!2m2!1d139.7051821!2d35.6710335!3e2?entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Meiji Jingu</a>
-                    <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
-                </span>
-            </div>
-            <div class="time-activity-row">
-                <span class="time-badge"></span>
-                <span class="activity-text">
-                    <i class="fas fa-shopping-bag"></i>
-                    <a href="https://www.google.com/maps/dir/Shibuya+Scramble+Square,+2+Chome-24-12+Shibuya,+Tokyo+150-0002,+Japan/Hachiko+Statue,+2+Chome-1+Dogenzaka,+Shibuya,+Tokyo+150-0043,+Japan/Starbucks+Coffee+-+Shibuya+Tsutaya,+6QFRONT+2F+5+Chome-1-21+Udagawacho,+Shibuya,+Tokyo+150-0042,+Japan/Yoyogi+Park,+2-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-0052,+Japan/Cherry+Blossoms+Garden,+Japan,+%E3%80%92151-0052+Tokyo,+Shibuya,+Yoyogikamizonocho,+2,+%E7%A5%9E%E5%8D%97%EF%BC%92%E4%B8%81%E7%9B%AE/Yoyogi+Park+Clock+Tower,+2-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-0052,+Japan/Meiji+Jingu,+1-1+Yoyogikamizonocho,+Shibuya,+Tokyo+151-8557,+Japan/Takeshita+St,+1-ch%C5%8Dme+Jing%C5%ABmae,+Shibuya,+Tokyo+150-0001,+Japan/@35.6674176,139.6896506,3830m/data=!3m3!1e3!4b1!5s0x60188ca81a158b2f:0x9070f25ce2bc2f7b!4m50!4m49!1m5!1m1!1s0x60188b8427e1c0b1:0x78f6e23397061d6f!2m2!1d139.7022621!2d35.6584638!1m5!1m1!1s0x60188b57efbd57c7:0x217e9d9fe306fba!2m2!1d139.7006293!2d35.6590579!1m5!1m1!1s0x60188ca8194a6235:0x7e2eef92f5e67266!2m2!1d139.7004154!2d35.6598098!1m5!1m1!1s0x60188cb479620a33:0x34bcc78ce7f8bf3e!2m2!1d139.6949656!2d35.6700649!1m5!1m1!1s0x60188cb3b9275a85:0x15560143c65670f5!2m2!1d139.6947382!2d35.6694283!1m5!1m1!1s0x60188cb01936530f:0x93dcfb878a734199!2m2!1d139.7007898!2d35.6690816!1m5!1m1!1s0x60188cb79a4c26e5:0x8fca893849103f73!2m2!1d139.6993259!2d35.6763976!1m5!1m1!1s0x60188cbaf1de5995:0xc2becc88ea4e7eb5!2m2!1d139.7051821!2d35.6710335!3e2?entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">Takeshita Street</a>
-                    <span class="extra-route-note"><i class="fas fa-route"></i> optional</span>
-                </span>
-            </div>
-            <div class="time-activity-row">
-                <span class="time-badge">1:00 PM</span>
-                <span class="activity-text">
-                    <i class="fas fa-undo-alt"></i>
-                    <a href="https://www.google.com/maps/dir/Shibuya+Parco,+%E6%B8%8B%E8%B0%B7%E3%83%91%E3%83%AB%E3%82%B3%E3%83%BB%E3%83%92%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%83%E3%82%AF%E3%83%93%E3%83%AB+B1-10%E9%9A%8E+15-1+Udagawacho,+Shibuya,+Tokyo+150-8377,+Japan/Takeshita+St,+1-ch%C5%8Dme+Jing%C5%ABmae,+Shibuya,+Tokyo+150-0001,+Japan/@35.6587298,139.6951642,1398m/am=t/data=!3m1!1e3!4m18!4m17!1m5!1m1!1s0x60188ca8e2fe2173:0x1adbb1909538391b!2m2!1d139.6987767!2d35.6620484!1m5!1m1!1s0x60188cbaf1de5995:0xc2becc88ea4e7eb5!2m2!1d139.7051821!2d35.6710335!2m3!6e0!7e2!8j1772717400!5i1?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Back to Shibuya</a>
-                </span>
-            </div>
-            <div class="time-activity-row">
-                <span class="time-badge"></span>
-                <span class="activity-text">
-                    <i class="fas fa-store"></i>
-                    <a href="https://www.youtube.com/watch?v=3X1LaxeJBnc" target="_blank" class="video-link">📺 Shibuya Parco (video)</a>
-                </span>
-            </div>
             <div class="time-activity-row"><span class="time-badge">4:00 PM</span> <span class="activity-text"><i class="fas fa-building"></i> Shibuya Scramble Square</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-eye"></i> Shibuya Sky</span></div>
             <div class="time-activity-row">
@@ -1030,7 +1135,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 3 – Disneyland Adventure -->
 <div class="modal-overlay" id="modal-day3" onclick="closeModalOutside(event, 'modal-day3')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1038,9 +1142,7 @@
             <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="disney-section">
-                <div class="disney-title"><i class="fas fa-castle"></i> Disneyland Adventure</div>
-            </div>
+            <div class="disney-section"><div class="disney-title"><i class="fas fa-castle"></i> Disneyland Adventure</div></div>
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
             <div class="time-activity-row">
                 <span class="time-badge">9:00 AM</span>
@@ -1074,7 +1176,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 4 -->
 <div class="modal-overlay" id="modal-day4" onclick="closeModalOutside(event, 'modal-day4')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1088,7 +1189,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 5 – Mt Fuji Tour -->
 <div class="modal-overlay" id="modal-day5" onclick="closeModalOutside(event, 'modal-day5')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1096,9 +1196,7 @@
             <button class="modal-close" onclick="closeModal('modal-day5')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="fuji-section">
-                <div class="fuji-title"><i class="fas fa-fuji"></i> Mt Fuji Tour</div>
-            </div>
+            <div class="fuji-section"><div class="fuji-title"><i class="fas fa-fuji"></i> Mt Fuji Tour</div></div>
             <div class="time-activity-row"><span class="time-badge">5:30 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
             <div class="time-activity-row">
                 <span class="time-badge">7:00 AM</span>
@@ -1116,7 +1214,6 @@
             <div class="time-activity-row"><span class="time-badge">3:20 PM</span> <span class="activity-text"><i class="fas fa-clock"></i> 50 min(s) Self-guided <span class="extra-route-note"><i class="fas fa-walking"></i> explore on your own</span></span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-tree"></i> Oishi Park</span></div>
             <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-leaf"></i> Maple Corridor</span></div>
-            <div class="time-activity-row"><span class="time-badge"></span> <span class="activity-text"><i class="fas fa-cherry-blossom"></i> Kawaguchiko Cherry Blossom Festival <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzS6QZByOx1Jb6bQH4_2AXi0iLrYHw4pCgw&s" alt="Cherry Blossom" class="activity-img" onclick="window.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzzS6QZByOx1Jb6bQH4_2AXi0iLrYHw4pCgw&s','_blank')"></span></div>
             <div class="time-activity-row"><span class="time-badge">5:30 PM</span> <span class="activity-text"><i class="fas fa-undo-alt"></i> Return</span></div>
             <div class="time-activity-row"><span class="time-badge">7:00 PM</span> <span class="activity-text"><i class="fas fa-train"></i> <a href="https://www.google.com/maps/dir/Tokyo+Sta.+-S+(Marunouchi+South+Exit),+2-ch%C5%8Dme-7+Marunouchi,+Chiyoda+City,+Tokyo+100-0005,+Japan/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12-16+Komagata,+Taito+City,+Tokyo+111-0043,+Japan/@35.6938358,139.7604854,7658m/data=!3m2!1e3!4b1!4m15!4m14!1m5!1m1!1s0x60188bfa2fb635d7:0xe178dfef5d7ba8e5!2m2!1d139.764709!2d35.6811418!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!3e3!5i5?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDgwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-link">JR Tokyo Station Marunouchi South Exit</a></span></div>
             <div class="time-activity-row"><span class="time-badge">9:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Back to Hotel</span></div>
@@ -1125,7 +1222,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 6 – Kimi No Nawa -->
 <div class="modal-overlay" id="modal-day6" onclick="closeModalOutside(event, 'modal-day6')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1133,9 +1229,7 @@
             <button class="modal-close" onclick="closeModal('modal-day6')"><i class="fas fa-times"></i></button>
         </div>
         <div class="modal-body">
-            <div class="movie-section">
-                <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
-            </div>
+            <div class="movie-section"><div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div></div>
             <div class="time-activity-row"><span class="time-badge">4:00 AM</span> <span class="activity-text"><i class="fas fa-bell"></i> WAKE UP TIME</span></div>
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span> <span class="activity-text"><i class="fas fa-train"></i> <a href="https://www.google.com/maps/dir/APA+Hotel+Asakusa-Eki-mae,+1+Chome-12+Komagata,+Taito+City,+Tokyo,+Japan/35.6795278,139.7195278/@35.683132,139.715085,15520m/am=t/data=!3m1!1e3!4m13!4m12!1m5!1m1!1s0x60188ec7952b5d81:0x51892c72f494f0a!2m2!1d139.7954851!2d35.7082123!1m0!2m3!6e0!7e2!8j1770354000!3e3?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA2OUgBUAM%3D" target="_blank" class="map-link">Asakusa → Shinjuku</a></span></div>
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span> <span class="activity-text"><i class="fas fa-map-pin"></i> <a href="https://www.google.com/maps/place/35%C2%B040'46.3%22N+139%C2%B043'10.3%22E/@35.6795381,139.7189788,19z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!7e2!8m2!3d35.6795369!4d139.7195259" target="_blank" class="map-link">Shinomachi Station</a></span></div>
@@ -1162,7 +1256,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 7 -->
 <div class="modal-overlay" id="modal-day7" onclick="closeModalOutside(event, 'modal-day7')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1177,7 +1270,6 @@
     </div>
 </div>
 
-<!-- MODAL DAY 8 -->
 <div class="modal-overlay" id="modal-day8" onclick="closeModalOutside(event, 'modal-day8')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1198,65 +1290,157 @@
 <div class="about-overlay" id="aboutOverlay" onclick="closeAboutOutside(event)">
     <div class="about-content">
         <div class="about-header">
-            <div class="about-title">
-                <i class="fas fa-user-astronaut"></i> About Me
-            </div>
+            <div class="about-title"><i class="fas fa-user-astronaut"></i> About Me</div>
             <button class="about-close" onclick="closeAbout()"><i class="fas fa-times"></i></button>
         </div>
         <div class="about-body">
             <img src="https://media.licdn.com/dms/image/v2/D4E03AQGltbte-MiZPA/profile-displayphoto-shrink_400_400/B4EZTe0aQkG0Ak-/0/1738905070025?e=1787788800&v=beta&t=rHTwhGRvzI_PDGDN1MFX1_I57WocqtVzl_3dXds2Rls" alt="Grace" class="about-avatar-large">
-
             <div class="story-title">✈️ Good Times, Far Places</div>
             <div class="story-sub">✨ <i class="fas fa-heart"></i> Grace · @theGFsadvise <i class="fas fa-heart"></i> ✨</div>
-
             <div class="story-text">
-                <p>
-                    <span class="highlight">I'm Grace</span> — a curious soul with a <span class="highlight-pink">passion for exploration</span> and a deep love for discovering the world's hidden gems.
-                    My journey began with a simple belief: <span class="highlight">travel is more than just seeing new places; it's about collecting moments, flavors, and stories.</span>
-                </p>
-
-                <p>
-                    From the <span class="highlight-pink">cherry blossom-lined streets of Tokyo</span> to the <span class="highlight">bustling night markets of Seoul</span>
-                    and the <span class="highlight-pink">ancient wonders of Beijing</span>, every destination has a story waiting to be told.
-                    I don't just plan trips — I curate <span class="highlight">experiences</span> that stay with you long after the journey ends.
-                </p>
-
+                <p><span class="highlight">I'm Grace</span> — a curious soul with a <span class="highlight-pink">passion for exploration</span> and a deep love for discovering the world's hidden gems. My journey began with a simple belief: <span class="highlight">travel is more than just seeing new places; it's about collecting moments, flavors, and stories.</span></p>
+                <p>From the <span class="highlight-pink">cherry blossom-lined streets of Tokyo</span> to the <span class="highlight">bustling night markets of Seoul</span> and the <span class="highlight-pink">ancient wonders of Beijing</span>, every destination has a story waiting to be told. I don't just plan trips — I curate <span class="highlight">experiences</span> that stay with you long after the journey ends.</p>
                 <hr class="story-divider" />
-
-                <p>
-                    <span class="highlight">🌏 Why GF Travel Itineraries?</span><br />
-                    The <span class="highlight">"GF"</span> stands for <span class="highlight-pink">"Good Times, Far Places"</span> — because that's exactly what I believe travel should be.
-                    Whether you're a <span class="highlight">solo adventurer</span>, a <span class="highlight-pink">couple</span>, or a <span class="highlight">group of friends</span>, I'm here to help you turn your travel dreams into reality.
-                </p>
-
-                <p>
-                    <span class="highlight-pink">✨ What I offer:</span><br />
-                    🗺️ Handcrafted, <span class="highlight">day-by-day itineraries</span><br />
-                    🏨 <span class="highlight-pink">Curated hotel recommendations</span> for every budget<br />
-                    🍜 <span class="highlight">Local food guides</span> to satisfy every craving<br />
-                    📸 <span class="highlight-pink">Instagram-worthy spots</span> you won't want to miss<br />
-                    💡 <span class="highlight">Insider tips</span> that only locals know
-                </p>
-
+                <p><span class="highlight">🌏 Why GF Travel Itineraries?</span><br />The <span class="highlight">"GF"</span> stands for <span class="highlight-pink">"Good Times, Far Places"</span> — because that's exactly what I believe travel should be. Whether you're a <span class="highlight">solo adventurer</span>, a <span class="highlight-pink">couple</span>, or a <span class="highlight">group of friends</span>, I'm here to help you turn your travel dreams into reality.</p>
+                <p><span class="highlight-pink">✨ What I offer:</span><br />🗺️ Handcrafted, <span class="highlight">day-by-day itineraries</span><br />🏨 <span class="highlight-pink">Curated hotel recommendations</span> for every budget<br />🍜 <span class="highlight">Local food guides</span> to satisfy every craving<br />📸 <span class="highlight-pink">Instagram-worthy spots</span> you won't want to miss<br />💡 <span class="highlight">Insider tips</span> that only locals know</p>
                 <hr class="story-divider" />
-
-                <p>
-                    <span class="highlight">💫 Let's explore together.</span><br />
-                    Whether you're planning your <span class="highlight-pink">first big trip</span> or your <span class="highlight">fiftieth</span>, I'm here to make every journey
-                    <span class="highlight-pink">effortless, memorable, and full of good times.</span>
-                </p>
+                <p><span class="highlight">💫 Let's explore together.</span><br />Whether you're planning your <span class="highlight-pink">first big trip</span> or your <span class="highlight">fiftieth</span>, I'm here to make every journey <span class="highlight-pink">effortless, memorable, and full of good times.</span></p>
             </div>
-
-            <div class="story-tagline">
-                <i class="fas fa-compass"></i> Good Times, Far Places <i class="fas fa-compass"></i>
-            </div>
+            <div class="story-tagline"><i class="fas fa-compass"></i> Good Times, Far Places <i class="fas fa-compass"></i></div>
         </div>
     </div>
 </div>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-    // Modal functions
+    // --- SPLASH ---
+    function dismissSplash() {
+        const splash = document.getElementById('splash-screen');
+        splash.classList.add('hidden');
+        document.getElementById('main-content').classList.add('visible');
+        document.body.style.overflow = 'auto'; // allow scroll on main content
+        // stop leaf animation
+        if (window.leafInterval) {
+            clearInterval(window.leafInterval);
+            window.leafInterval = null;
+        }
+    }
+
+    // --- FALLING LEAVES CANVAS ---
+    (function initLeaves() {
+        const canvas = document.getElementById('leaves-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let leaves = [];
+
+        function resize() {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        function createLeaf() {
+            const x = Math.random() * width;
+            const y = -20 - Math.random() * 40;
+            const size = 14 + Math.random() * 18;
+            const speedY = 0.8 + Math.random() * 1.6;
+            const speedX = -0.4 + Math.random() * 0.8;
+            const rotation = Math.random() * 360;
+            const rotSpeed = -0.02 + Math.random() * 0.04;
+            // leaf colors: warm autumn
+            const hue = 20 + Math.random() * 30; // 20-50 orange/yellow/red
+            const sat = 60 + Math.random() * 30;
+            const lig = 50 + Math.random() * 30;
+            return { x, y, size, speedY, speedX, rotation, rotSpeed, hue, sat, lig };
+        }
+
+        function initLeaves(count) {
+            leaves = [];
+            for (let i = 0; i < count; i++) {
+                const leaf = createLeaf();
+                leaf.y = Math.random() * height;
+                leaves.push(leaf);
+            }
+        }
+
+        function drawLeaf(leaf) {
+            ctx.save();
+            ctx.translate(leaf.x, leaf.y);
+            ctx.rotate(leaf.rotation * Math.PI / 180);
+            ctx.beginPath();
+            // simple leaf shape: ellipse with a point
+            ctx.ellipse(0, 0, leaf.size * 0.5, leaf.size * 0.35, 0, 0, Math.PI * 2);
+            ctx.fillStyle = `hsl(${leaf.hue}, ${leaf.sat}%, ${leaf.lig}%)`;
+            ctx.shadowColor = 'rgba(0,0,0,0.1)';
+            ctx.shadowBlur = 6;
+            ctx.fill();
+            // stem
+            ctx.beginPath();
+            ctx.moveTo(leaf.size * 0.5, 0);
+            ctx.lineTo(leaf.size * 0.7, -2);
+            ctx.strokeStyle = 'rgba(80,40,10,0.4)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function updateLeaf(leaf) {
+            leaf.x += leaf.speedX;
+            leaf.y += leaf.speedY;
+            leaf.rotation += leaf.rotSpeed;
+            // reset if out of bounds
+            if (leaf.y > height + 30) {
+                leaf.y = -30;
+                leaf.x = Math.random() * width;
+                leaf.speedY = 0.8 + Math.random() * 1.6;
+                leaf.speedX = -0.4 + Math.random() * 0.8;
+                leaf.size = 14 + Math.random() * 18;
+                leaf.hue = 20 + Math.random() * 30;
+                leaf.sat = 60 + Math.random() * 30;
+                leaf.lig = 50 + Math.random() * 30;
+            }
+            if (leaf.x < -40) leaf.x = width + 20;
+            if (leaf.x > width + 40) leaf.x = -20;
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            for (let leaf of leaves) {
+                updateLeaf(leaf);
+                drawLeaf(leaf);
+            }
+        }
+
+        function loop() {
+            animate();
+            window.leafInterval = requestAnimationFrame(loop);
+        }
+
+        resize();
+        initLeaves(55);
+        loop();
+
+        window.addEventListener('resize', () => {
+            resize();
+        });
+
+        // stop animation when splash is hidden
+        const observer = new MutationObserver(() => {
+            const splash = document.getElementById('splash-screen');
+            if (splash.classList.contains('hidden')) {
+                if (window.leafInterval) {
+                    cancelAnimationFrame(window.leafInterval);
+                    window.leafInterval = null;
+                }
+                observer.disconnect();
+            }
+        });
+        observer.observe(document.getElementById('splash-screen'), { attributes: true, attributeFilter: ['class'] });
+    })();
+
+    // --- MODAL FUNCTIONS ---
     function openModal(id) {
         document.getElementById(id).classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -1273,7 +1457,7 @@
         }
     }
 
-    // About Me functions
+    // --- ABOUT ME ---
     function openAbout() {
         document.getElementById('aboutOverlay').classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -1290,7 +1474,7 @@
         }
     }
 
-    // Keyboard shortcuts
+    // --- KEYBOARD ---
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const openModals = document.querySelectorAll('.modal-overlay.active');
