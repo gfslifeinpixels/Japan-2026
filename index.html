@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍁 DIY JAPAN · Autumn Itinerary 3pax by Grace 🍁</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
@@ -26,10 +26,10 @@
             justify-content: center;
             min-height: 100vh;
             font-size: 14px;
-            overflow: hidden; /* prevent scroll on splash */
+            overflow: hidden;
         }
 
-        /* ===== SPLASH SCREEN (full page) ===== */
+        /* ===== SPLASH SCREEN ===== */
         #splash-screen {
             position: fixed;
             top: 0;
@@ -94,7 +94,6 @@
             color: #f5cba0;
         }
 
-        /* Countdown */
         .countdown {
             font-size: 1.6rem;
             font-weight: 700;
@@ -140,7 +139,6 @@
             border-radius: 4px;
         }
 
-        /* checklist */
         .checklist {
             text-align: left;
             display: inline-block;
@@ -199,7 +197,6 @@
             50% { opacity: 1; transform: scale(1.02); }
         }
 
-        /* ===== FALLING LEAVES CANVAS ===== */
         #leaves-canvas {
             position: absolute;
             top: 0;
@@ -210,7 +207,6 @@
             z-index: 5;
         }
 
-        /* ===== MAIN CONTENT ===== */
         #main-content {
             opacity: 0;
             transition: opacity 1.2s ease;
@@ -224,16 +220,10 @@
             pointer-events: auto;
         }
 
-        /* ===== AUTUMN CARD ===== */
         .autumn-card {
             max-width: 1300px;
             width: 100%;
-            background: transparent;
-            backdrop-filter: none;
-            border-radius: 40px 40px 30px 30px;
-            box-shadow: none;
             padding: 24px 20px 20px;
-            border: none;
         }
 
         .header {
@@ -268,7 +258,6 @@
             border: 3px solid rgba(180, 140, 100, 0.3);
             box-shadow: 0 4px 0 rgba(150, 110, 70, 0.2);
             margin-top: 4px;
-            font-family: 'Lato', sans-serif;
             display: inline-block;
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -293,7 +282,6 @@
             color: #2d1f12;
             border: 3px solid rgba(200, 170, 130, 0.4);
             box-shadow: 0 4px 0 rgba(160, 120, 80, 0.2);
-            font-family: 'Lato', sans-serif;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
@@ -310,32 +298,11 @@
             color: #2d1f12;
             border: 3px solid rgba(180, 150, 120, 0.3);
             display: inline-block;
-            font-family: 'Lato', sans-serif;
             cursor: pointer;
             transition: transform 0.2s ease;
         }
         .pax-badge:hover {
             transform: scale(1.02);
-        }
-
-        .hotel-info {
-            background: rgba(240, 215, 185, 0.85);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
-            padding: 12px 24px;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #2d1f12;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 4px solid rgba(200, 170, 140, 0.35);
-            box-shadow: 0 6px 0 rgba(160, 130, 100, 0.15);
-            margin-bottom: 12px;
-            font-family: 'Lato', sans-serif;
-        }
-        .hotel-info i {
-            font-size: 1.2rem;
         }
 
         .day-tile {
@@ -394,7 +361,6 @@
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.3px;
-            font-family: 'Lato', sans-serif;
         }
 
         .day-label {
@@ -407,7 +373,6 @@
             border: 2px solid rgba(180, 150, 120, 0.3);
             box-shadow: 0 3px 0 rgba(150, 120, 90, 0.15);
             display: inline-block;
-            font-family: 'Lato', sans-serif;
         }
 
         .click-hint {
@@ -421,7 +386,6 @@
             border: 2px solid rgba(180, 150, 120, 0.25);
             display: inline-block;
             margin-bottom: 14px;
-            font-family: 'Lato', sans-serif;
         }
         .click-hint i {
             margin-right: 6px;
@@ -439,7 +403,6 @@
             align-items: center;
             margin-top: 20px;
             flex-wrap: wrap;
-            font-family: 'Lato', sans-serif;
             gap: 10px;
             border: 3px solid rgba(200, 170, 140, 0.35);
             box-shadow: 0 4px 0 rgba(160, 130, 100, 0.15);
@@ -513,7 +476,6 @@
             font-weight: 600;
             opacity: 0.85;
             font-family: 'Lato', sans-serif;
-            padding: 0 6px;
             line-height: 1.4;
             background: rgba(255, 248, 240, 0.4);
             backdrop-filter: blur(4px);
@@ -560,9 +522,7 @@
             border: 4px solid rgba(200, 175, 145, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             overflow-y: auto;
-            padding: 0;
             animation: slideUp 0.3s ease;
-            font-family: 'Lato', sans-serif;
         }
         @keyframes slideUp {
             from { transform: translateY(30px); opacity: 0; }
@@ -609,7 +569,6 @@
             padding: 16px 18px 20px;
         }
 
-        /* ===== TABLE STYLES ===== */
         .participant-table {
             width: 100%;
             border-collapse: collapse;
@@ -642,7 +601,6 @@
             font-weight: 700;
             display: inline-block;
             color: #2d1f12;
-            font-family: 'Lato', sans-serif;
             font-size: 0.8rem;
         }
 
@@ -667,7 +625,6 @@
             border-radius: 30px;
             text-align: center;
             border: 2px solid rgba(180, 150, 120, 0.2);
-            font-family: 'Lato', sans-serif;
         }
         .modal-body .activity-text {
             flex: 1;
@@ -678,7 +635,6 @@
             align-items: center;
             gap: 10px;
             flex-wrap: wrap;
-            font-family: 'Lato', sans-serif;
             min-width: 140px;
         }
         .modal-body .activity-text i {
@@ -724,30 +680,6 @@
             color: #3d2b1c;
             border-bottom: 2px solid rgba(160, 130, 100, 0.6);
         }
-        .modal-body .image-link {
-            color: #7a4a2a;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px dotted rgba(160, 130, 100, 0.4);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .modal-body .image-link:hover {
-            color: #3d2b1c;
-            border-bottom: 2px solid rgba(160, 130, 100, 0.6);
-        }
-        .modal-body .video-link {
-            color: #7a4a2a;
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px dotted rgba(160, 130, 100, 0.4);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .modal-body .video-link:hover {
-            color: #3d2b1c;
-            border-bottom: 2px solid rgba(160, 130, 100, 0.6);
-        }
         .modal-body .extra-route-note {
             background: rgba(255, 248, 240, 0.6);
             border-radius: 14px;
@@ -757,42 +689,6 @@
             color: #4a3222;
             border: 2px dashed rgba(180, 150, 120, 0.3);
             display: inline-block;
-            font-family: 'Lato', sans-serif;
-        }
-        .modal-body .activity-img {
-            max-height: 40px;
-            border-radius: 10px;
-            border: 2px solid rgba(180, 150, 120, 0.3);
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-        .modal-body .activity-img:hover {
-            transform: scale(1.1);
-        }
-        .modal-body .scene-photo {
-            max-height: 80px;
-            border-radius: 12px;
-            border: 3px solid rgba(180, 150, 120, 0.3);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-        .modal-body .scene-photo:hover {
-            transform: scale(1.05);
-        }
-        .modal-body .disney-img {
-            max-height: 120px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 3px solid rgba(180, 150, 120, 0.3);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-        .modal-body .disney-img:hover {
-            transform: scale(1.02);
         }
 
         /* ===== ABOUT ME OVERLAY ===== */
@@ -824,7 +720,6 @@
             border-radius: 40px 20px 40px 20px;
             border: 2px solid #c49a7a;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 6px rgba(196, 154, 122, 0.15);
-            padding: 0;
             overflow-y: auto;
             animation: slideUp 0.4s ease;
             position: relative;
@@ -948,8 +843,6 @@
             .price-chip { font-size: 0.85rem; padding: 6px 14px; }
             .pax-badge { font-size: 0.8rem; padding: 4px 12px; }
             .grace-badge { font-size: 0.75rem; padding: 4px 12px; }
-            .hotel-info { font-size: 0.8rem; padding: 8px 16px; }
-            .hotel-info i { font-size: 1rem; }
             .day-badge { font-size: 1rem; padding: 3px 12px; }
             .day-date { font-size: 0.7rem; padding: 3px 12px; }
             .day-label { font-size: 0.7rem; padding: 3px 10px; }
@@ -972,9 +865,6 @@
             .modal-body .activity-text { font-size: 0.75rem; gap: 6px; min-width: 100px; }
             .modal-body .activity-text i { font-size: 1rem; min-width: 22px; }
             .modal-body .alert-note { font-size: 0.7rem; padding: 4px 12px; }
-            .modal-body .scene-photo { max-height: 60px; }
-            .modal-body .disney-img { max-height: 80px; }
-            .modal-body .activity-img { max-height: 32px; }
             .modal-body .movie-section .movie-title,
             .modal-body .fuji-section .fuji-title,
             .modal-body .shibuya-section .shibuya-title,
@@ -1036,15 +926,14 @@
 
         <!-- Travel Checklist -->
         <div class="checklist">
-            <div class="checklist-item"><i class="fas fa-passport"></i> Passport & visa ready</div>           
-            <div class="checklist-item"><i class="fas fa-file-alt"></i> <a href="https://www.vjw.digital.go.jp/main/#/vjwpco001" target="_blank">Visit Japan Arrival Card</a></div>
-            <div class="checklist-item"><i class="fas fa-file-contract"></i> <a href="https://etravel.gov.ph/" target="_blank">PH eTravel</a></div> 
+            <div class="checklist-item"><i class="fas fa-passport"></i> Passport & visa ready</div>
             <div class="checklist-item"><i class="fas fa-wifi"></i> Pocket WiFi / eSIM</div>
             <div class="checklist-item"><i class="fas fa-yen-sign"></i> Japanese Yen (cash)</div>
             <div class="checklist-item"><i class="fas fa-cloud-sun"></i> Autumn layers (jacket, scarf)</div>
             <div class="checklist-item"><i class="fas fa-shoe-prints"></i> Comfortable walking shoes</div>
             <div class="checklist-item"><i class="fas fa-camera"></i> Camera / phone for memories</div>
-
+            <div class="checklist-item"><i class="fas fa-file-alt"></i> <a href="https://www.vjw.digital.go.jp/main/#/vjwpco001" target="_blank">Visit Japan Arrival Card</a></div>
+            <div class="checklist-item"><i class="fas fa-file-contract"></i> <a href="https://etravel.gov.ph/" target="_blank">PH eTravel</a></div>
         </div>
 
         <div class="splash-tap"><i class="fas fa-hand-pointer"></i> Tap anywhere to begin</div>
@@ -1064,23 +953,13 @@
                 </div>
             </div>
             <div class="header-right">
-                <div class="pax-badge" onclick="openParticipants()">
+                <div class="pax-badge" onclick="openModal('modal-participants')">
                     <i class="fas fa-users"></i> 3 pax · autumn 2026
                 </div>
-                <div class="price-chip" onclick="openPriceNotice()">
+                <div class="price-chip" onclick="openModal('modal-price')">
                     <i class="fas fa-tag"></i> ₱50,000/pax*
                 </div>
             </div>
-        </div>
-
-        <!-- HOTEL APA Asakusa-Ekimae -->
-        <div class="hotel-info">
-            <i class="fas fa-hotel fa-2x"></i> APA Hotel Asakusa-Ekimae · 7 nights (Oct 9–16)
-        </div>
-
-        <!-- Click Hint -->
-        <div class="click-hint">
-            <i class="fas fa-hand-pointer"></i> Click on any day to view the full itinerary
         </div>
 
         <!-- ===== DAY CARDS ===== -->
@@ -1241,7 +1120,7 @@
     </div>
 </div>
 
-<!-- DAY MODALS (condensed for brevity, same as before) -->
+<!-- DAY MODALS -->
 <div class="modal-overlay" id="modal-day1" onclick="closeModalOutside(event, 'modal-day1')">
     <div class="modal-content">
         <div class="modal-header">
@@ -1252,7 +1131,7 @@
             <div class="time-activity-row"><span class="time-badge">7:30 AM</span> <span class="activity-text"><i class="fas fa-suitcase"></i> NAIA Airport Baggage Checkin</span></div>
             <div class="time-activity-row"><span class="time-badge">11:00 AM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Boarding · Departure @ 12:15 PM</span></div>
             <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita @ 6:00 PM</span></div>
-            <div class="time-activity-row"><span class="time-badge">9:00 PM</span> <span class="activity-text"><i class="fas fa-key"></i> Hotel Check-in (APA Hotel Asakusa-Ekimae)</span></div>
+            <div class="time-activity-row"><span class="time-badge">9:00 PM</span> <span class="activity-text"><i class="fas fa-key"></i> Hotel Check-in</span></div>
             <div class="alert-note"><i class="fas fa-utensils"></i> Asakusa: Nakamise-dori, melon pan, ningyo-yaki</div>
         </div>
     </div>
@@ -1377,7 +1256,7 @@
         </div>
         <div class="modal-body">
             <div class="time-activity-row"><span class="time-badge">Morning</span> <span class="activity-text"><i class="fas fa-shopping-bag"></i> Last minute Shopping Asakusa</span></div>
-            <div class="time-activity-row"><span class="time-badge">12:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check Out (APA Hotel Asakusa-Ekimae)</span></div>
+            <div class="time-activity-row"><span class="time-badge">12:00 PM</span> <span class="activity-text"><i class="fas fa-hotel"></i> Hotel Check Out</span></div>
             <div class="time-activity-row"><span class="time-badge">4:00 PM</span> <span class="activity-text"><i class="fas fa-plane-arrival"></i> Arrival Narita Airport</span></div>
             <div class="time-activity-row"><span class="time-badge">6:00 PM</span> <span class="activity-text"><i class="fas fa-plane-departure"></i> Departure @ 6:00 PM</span></div>
             <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 12pm · at Narita by 4pm · depart 6:00 PM</div>
@@ -1545,18 +1424,6 @@
         loop();
 
         window.addEventListener('resize', resize);
-
-        const observer = new MutationObserver(() => {
-            const splash = document.getElementById('splash-screen');
-            if (splash.classList.contains('hidden')) {
-                if (window.leafInterval) {
-                    cancelAnimationFrame(window.leafInterval);
-                    window.leafInterval = null;
-                }
-                observer.disconnect();
-            }
-        });
-        observer.observe(document.getElementById('splash-screen'), { attributes: true, attributeFilter: ['class'] });
     })();
 
     // --- MODAL FUNCTIONS ---
@@ -1571,19 +1438,7 @@
     }
 
     function closeModalOutside(event, id) {
-        if (event.target === document.getElementById(id)) {
-            closeModal(id);
-        }
-    }
-
-    // --- PRICE NOTICE ---
-    function openPriceNotice() {
-        openModal('modal-price');
-    }
-
-    // --- PARTICIPANTS ---
-    function openParticipants() {
-        openModal('modal-participants');
+        if (event.target.id === id) closeModal(id);
     }
 
     // --- ABOUT ME ---
