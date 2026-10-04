@@ -1109,67 +1109,6 @@ body {
         padding: 2px 8px;
     }
 }
-
-/* ==================== RIDES LIST ==================== */
-.rides-list {
-    counter-reset: ride-counter;
-    list-style: none;
-    padding: 6px 0 6px 34px;
-    margin: 0;
-    width: 100%;
-}
-
-.rides-list li {
-    counter-increment: ride-counter;
-    position: relative;
-    padding: 5px 0 5px 8px;
-    font-size: .85rem;
-    font-weight: 600;
-    color: #2d1f12;
-    line-height: 1.5;
-    border-bottom: 1px dashed rgba(180,150,120,.15);
-}
-
-.rides-list li:last-child {
-    border-bottom: none;
-}
-
-.rides-list li::before {
-    content: counter(ride-counter) ".";
-    position: absolute;
-    left: -26px;
-    top: 5px;
-    font-weight: 900;
-    font-size: .8rem;
-    color: #b08060;
-    background: rgba(240,215,185,.5);
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgba(180,150,120,.25);
-}
-
-@media (max-width: 480px) {
-    .rides-list {
-        padding-left: 30px;
-    }
-
-    .rides-list li {
-        font-size: .75rem;
-        padding: 4px 0 4px 6px;
-    }
-
-    .rides-list li::before {
-        left: -24px;
-        top: 3px;
-        width: 20px;
-        height: 20px;
-        font-size: .7rem;
-    }
-}
 </style>
 </head>
 
@@ -1432,7 +1371,7 @@ body {
 
         <div class="modal-body">
             <div class="movie-section">
-                <div class="movie-title"><i class="fas fa-film"></i> <a href="https://www.tofugu.com/japan/your-name-locations/" target="_blank" style="color:#2d1f12;text-decoration:none;">Kimi No Nawa (Your Name) DIY</a></div>
+                <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
@@ -1473,10 +1412,7 @@ body {
             <span class="modal-title">📅 DAY 3 · Sunday, Oct 11, 2026</span>
             <button class="modal-close" onclick="closeModal('modal-day3')"><i class="fas fa-times"></i></button>
         </div>
- <div class="modal-body">
-            <div class="movie-section">
-                <div class="movie-title"><i class="fas fa-film"></i> <a href="https://www.tofugu.com/japan/your-name-locations/" target="_blank" style="color:#2d1f12;text-decoration:none;">NIKKO DAY TRIP</a></div>
-            </div>
+
         <div class="modal-body">
             <div class="time-activity-row">
                 <span class="time-badge">7:00 AM</span>
@@ -1618,7 +1554,7 @@ body {
     </div>
 </div>
 
-<!-- ==================== DAY 7 (Disneyland) — EXPANDED ==================== -->
+<!-- ==================== DAY 7 (Disneyland) ==================== -->
 <div class="modal-overlay" id="modal-day7" onclick="closeModalOutside(event)">
     <div class="modal-content">
         <div class="modal-header">
@@ -1645,40 +1581,7 @@ body {
             </div>
 
             <div class="time-activity-row">
-                <span class="time-badge">10:00 AM</span>
-                <span class="activity-text">
-                    <i class="fas fa-castle"></i>FULL DAY ADVENTURE
-                </span>
-            </div>
-
-            <div class="time-activity-row" style="align-items:flex-start;">
-                <span class="time-badge" style="margin-top:6px;">RIDES</span>
-                <span class="activity-text" style="flex-direction:column;align-items:stretch;">
-                    <ol class="rides-list">
-                        <li>Enchanted Tale of Beauty and the Beast</li>
-                        <li>The Happy Ride with Baymax</li>
-                        <li>Big Thunder Mountain</li>
-                        <li>Pooh’s Honey Hunt</li>
-                        <li>Splash Mountain</li>
-                        <li>Buzz Lightyear’s Astro Blasters</li>
-                        <li>Monsters, Inc. Ride &amp; Go Seek!</li>
-                        <li>Pirates of the Caribbean</li>
-                        <li>Space Mountain</li>
-                        <li>It’s a small world</li>
-                        <li>Haunted Mansion</li>
-                    </ol>
-                </span>
-            </div>
-
-            <div class="time-activity-row">
-                <span class="time-badge">8:30 PM</span>
-                <span class="activity-text">
-                    <i class="fas fa-fire"></i>Fireworks: Sky Full of Colors
-                </span>
-            </div>
-
-            <div class="time-activity-row">
-                <span class="time-badge">9:30 PM</span>
+                <span class="time-badge">9:00 PM</span>
                 <span class="activity-text">
                     <i class="fas fa-hotel"></i>
                     <a href="https://www.google.com/maps/dir/Tokyo+Disneyland/APA+Hotel+Asakusa-Eki-mae" target="_blank" class="map-link">Back to Hotel</a>
