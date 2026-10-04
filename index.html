@@ -676,8 +676,7 @@ body {
 .movie-section,
 .fuji-section,
 .shibuya-section,
-.disney-section,
-.nikko-section {
+.disney-section {
     background: rgba(255,248,240,.6);
     border-radius: 24px;
     padding: 10px 16px;
@@ -688,8 +687,7 @@ body {
 .movie-title,
 .fuji-title,
 .shibuya-title,
-.disney-title,
-.nikko-title {
+.disney-title {
     font: 900 1.1rem 'Playfair Display', serif;
     color: #2d1f12;
 }
@@ -697,25 +695,20 @@ body {
 .movie-title i,
 .fuji-title i,
 .shibuya-title i,
-.disney-title i,
-.nikko-title i {
+.disney-title i {
     margin-right: 6px;
 }
 
-.movie-title a,
 .fuji-title a,
 .shibuya-title a,
-.disney-title a,
-.nikko-title a {
+.disney-title a {
     color: #2d1f12;
     text-decoration: none;
 }
 
-.movie-title a:hover,
 .fuji-title a:hover,
 .shibuya-title a:hover,
-.disney-title a:hover,
-.nikko-title a:hover {
+.disney-title a:hover {
     text-decoration: underline;
     color: #7a4a2a;
 }
@@ -742,28 +735,70 @@ body {
     border: 2px dashed rgba(180,150,120,.3);
 }
 
-/* ==================== DISNEY RIDE LIST ==================== */
-.disney-rides {
-    list-style: none;
-    padding: 6px 0 4px 12px;
-    margin: 0;
+/* ==================== FLIGHT DETAILS (new) ==================== */
+.flight-details {
     font-size: .85rem;
+    line-height: 1.6;
     color: #2d1f12;
-    font-weight: 600;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px 18px;
+    background: rgba(255,248,240,.5);
+    border-radius: 20px;
+    padding: 14px 18px;
+    border: 2px solid rgba(180,150,120,.2);
 }
-.disney-rides li {
+
+.flight-details .flight-row {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 2px 0;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(180,150,120,.25);
 }
-.disney-rides li i {
+
+.flight-details .flight-row:last-child {
+    border-bottom: none;
+}
+
+.flight-details .flight-code {
+    font-weight: 900;
+    font-size: .95rem;
+    background: rgba(200,165,130,.35);
+    padding: 2px 12px;
+    border-radius: 30px;
+    min-width: 85px;
+    text-align: center;
+}
+
+.flight-details .flight-date {
+    font-weight: 700;
+    color: #5a3a2a;
+    min-width: 100px;
+}
+
+.flight-details .flight-time {
+    font-weight: 800;
+    color: #3d2b1c;
+}
+
+.flight-details .flight-route {
+    flex: 1;
+    min-width: 200px;
+}
+
+.flight-details .flight-route i {
+    margin-right: 6px;
     color: #b08060;
-    font-size: .8rem;
-    width: 16px;
+}
+
+.flight-details .flight-label {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #8a6a4a;
+    background: rgba(240,215,185,.4);
+    padding: 1px 10px;
+    border-radius: 20px;
 }
 
 /* ==================== ABOUT ME ==================== */
@@ -1033,16 +1068,14 @@ body {
     .movie-section,
     .fuji-section,
     .shibuya-section,
-    .disney-section,
-    .nikko-section {
+    .disney-section {
         padding: 8px 12px;
     }
 
     .movie-title,
     .fuji-title,
     .shibuya-title,
-    .disney-title,
-    .nikko-title {
+    .disney-title {
         font-size: .95rem;
     }
 
@@ -1121,10 +1154,24 @@ body {
         min-width: 28px;
     }
 
-    .disney-rides {
-        grid-template-columns: 1fr;
-        gap: 2px 12px;
+    .flight-details {
         font-size: .75rem;
+        padding: 10px 12px;
+    }
+
+    .flight-details .flight-code {
+        min-width: 65px;
+        font-size: .8rem;
+        padding: 1px 8px;
+    }
+
+    .flight-details .flight-date {
+        min-width: 70px;
+        font-size: .75rem;
+    }
+
+    .flight-details .flight-route {
+        min-width: 140px;
     }
 }
 
@@ -1146,6 +1193,16 @@ body {
     .day-label {
         font-size: .65rem;
         padding: 2px 8px;
+    }
+
+    .flight-details .flight-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .flight-details .flight-route {
+        min-width: auto;
     }
 }
 </style>
@@ -1206,7 +1263,7 @@ body {
                 </div>
 
                 <div class="price-chip" onclick="openModal('modal-price')">
-                    <i class="fas fa-tag"></i> Flight Details*
+                    <i class="fas fa-tag"></i> ₱50,000/pax*
                 </div>
             </div>
         </div>
@@ -1309,28 +1366,91 @@ body {
             </div>
         </div>
 
-        <div class="footnote">
-            <i class="fas fa-info-circle"></i>
-            Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
+        <!-- ========== FOOTNOTE REPLACED WITH FLIGHT DETAILS ========== -->
+        <div class="footnote" style="background: rgba(255,248,240,.7); padding: 10px 16px; border-radius: 24px;">
+            <div class="flight-details" style="background: transparent; border: none; padding: 0;">
+                <div class="flight-row">
+                    <span class="flight-code">MNL-NRT</span>
+                    <span class="flight-label">5J 5056</span>
+                    <span class="flight-date">9 Oct 2026</span>
+                    <span class="flight-label">DEPARTURE</span>
+                    <span class="flight-time">12:15pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-departure"></i> Manila – Ninoy Aquino International Airport Terminal 3</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">NRT</span>
+                    <span class="flight-label">ARRIVAL</span>
+                    <span class="flight-date">9 Oct 2026</span>
+                    <span class="flight-time">6:00pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-arrival"></i> Tokyo (Narita) – Narita International Airport Terminal 2</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">NRT-MNL</span>
+                    <span class="flight-label">5J 5057</span>
+                    <span class="flight-date">16 Oct 2026</span>
+                    <span class="flight-label">DEPARTURE</span>
+                    <span class="flight-time">7:15pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-departure"></i> Tokyo (Narita) – Narita International Airport Terminal 2</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">MNL</span>
+                    <span class="flight-label">ARRIVAL</span>
+                    <span class="flight-date">16 Oct 2026</span>
+                    <span class="flight-time">11:35pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-arrival"></i> Manila – Ninoy Aquino International Airport Terminal 3</span>
+                </div>
+            </div>
         </div>
+        <!-- ========== END FOOTNOTE REPLACEMENT ========== -->
 
     </div>
 </div>
 
-<!-- ==================== PRICE MODAL ==================== -->
+<!-- ==================== PRICE MODAL (updated with flight details) ==================== -->
 <div class="modal-overlay" id="modal-price" onclick="closeModalOutside(event)">
     <div class="modal-content">
         <div class="modal-header">
-            <span class="modal-title">💰 Price Notice</span>
+            <span class="modal-title">✈️ Flight Details</span>
             <button class="modal-close" onclick="closeModal('modal-price')">
                 <i class="fas fa-times"></i>
             </button>
         </div>
 
         <div class="modal-body">
-            <div class="alert-note" style="font-size:1rem;padding:12px 20px;text-align:center;">
-                <i class="fas fa-info-circle" style="font-size:1.2rem;"></i><br><br>
-                Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
+            <div class="flight-details">
+                <div class="flight-row">
+                    <span class="flight-code">MNL-NRT</span>
+                    <span class="flight-label">5J 5056</span>
+                    <span class="flight-date">9 Oct 2026</span>
+                    <span class="flight-label">DEPARTURE</span>
+                    <span class="flight-time">12:15pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-departure"></i> Manila – Ninoy Aquino International Airport Terminal 3</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">NRT</span>
+                    <span class="flight-label">ARRIVAL</span>
+                    <span class="flight-date">9 Oct 2026</span>
+                    <span class="flight-time">6:00pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-arrival"></i> Tokyo (Narita) – Narita International Airport Terminal 2</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">NRT-MNL</span>
+                    <span class="flight-label">5J 5057</span>
+                    <span class="flight-date">16 Oct 2026</span>
+                    <span class="flight-label">DEPARTURE</span>
+                    <span class="flight-time">7:15pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-departure"></i> Tokyo (Narita) – Narita International Airport Terminal 2</span>
+                </div>
+                <div class="flight-row">
+                    <span class="flight-code">MNL</span>
+                    <span class="flight-label">ARRIVAL</span>
+                    <span class="flight-date">16 Oct 2026</span>
+                    <span class="flight-time">11:35pm</span>
+                    <span class="flight-route"><i class="fas fa-plane-arrival"></i> Manila – Ninoy Aquino International Airport Terminal 3</span>
+                </div>
+            </div>
+            <div class="alert-note" style="margin-top:16px; font-size:.75rem; opacity:.9;">
+                <i class="fas fa-info-circle"></i> Prices are subject to change without prior notice. Rates are estimated per person based on triple-sharing accommodations and may vary depending on availability, exchange rates, and seasonal adjustments. Final cost will be confirmed upon booking.
             </div>
         </div>
     </div>
@@ -1410,10 +1530,7 @@ body {
 
         <div class="modal-body">
             <div class="movie-section">
-                <div class="movie-title">
-                    <i class="fas fa-film"></i>
-                    <a href="https://www.tofugu.com/japan/your-name-locations/" target="_blank">Kimi No Nawa (Your Name) DIY</a>
-                </div>
+                <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
@@ -1456,13 +1573,6 @@ body {
         </div>
 
         <div class="modal-body">
-            <div class="nikko-section">
-                <div class="nikko-title">
-                    <i class="fas fa-mountain"></i>
-                    <a href="https://drive.google.com/file/d/1uvNKhaPrBzK2g-i6Qtzios-YPDvRErQZ/view?usp=drive_link" target="_blank">NIKKO DAY TRIP</a>
-                </div>
-            </div>
-
             <div class="time-activity-row">
                 <span class="time-badge">7:00 AM</span>
                 <span class="activity-text"><i class="fas fa-users"></i>MEET UP LOCATION</span>
@@ -1629,28 +1739,8 @@ body {
                 </span>
             </div>
 
-            <div class="time-activity-row"><span class="time-badge">10:00 AM</span><span class="activity-text"><i class="fas fa-flag-checkered"></i>FULL DAY ADVENTURE</span></div>
-
-            <div style="padding: 6px 0 2px 34px; font-weight: 700; font-size: .85rem; color: #2d1f12;">
-                <i class="fas fa-ticket-alt" style="color: #b08060; margin-right: 8px;"></i>RIDES:
-            </div>
-            <ul class="disney-rides">
-                <li><i class="fas fa-check-circle"></i>Enchanted Tale of Beauty and the Beast</li>
-                <li><i class="fas fa-check-circle"></i>The Happy Ride with Baymax</li>
-                <li><i class="fas fa-check-circle"></i>Big Thunder Mountain</li>
-                <li><i class="fas fa-check-circle"></i>Pooh’s Honey Hunt</li>
-                <li><i class="fas fa-check-circle"></i>Splash Mountain</li>
-                <li><i class="fas fa-check-circle"></i>Buzz Lightyear’s Astro Blasters</li>
-                <li><i class="fas fa-check-circle"></i>Monsters, Inc. Ride & Go Seek!</li>
-                <li><i class="fas fa-check-circle"></i>Pirates of the Caribbean</li>
-                <li><i class="fas fa-check-circle"></i>Space Mountain</li>
-                <li><i class="fas fa-check-circle"></i>It’s a small world</li>
-                <li><i class="fas fa-check-circle"></i>Haunted Mansion</li>
-            </ul>
-
-            <div class="time-activity-row" style="margin-top: 8px;"><span class="time-badge">8:30 PM</span><span class="activity-text"><i class="fas fa-fire"></i>Fireworks: Sky Full of Colors</span></div>
             <div class="time-activity-row">
-                <span class="time-badge">9:30 PM</span>
+                <span class="time-badge">9:00 PM</span>
                 <span class="activity-text">
                     <i class="fas fa-hotel"></i>
                     <a href="https://www.google.com/maps/dir/Tokyo+Disneyland/APA+Hotel+Asakusa-Eki-mae" target="_blank" class="map-link">Back to Hotel</a>
@@ -1674,8 +1764,8 @@ body {
             <div class="time-activity-row"><span class="time-badge">Morning</span><span class="activity-text"><i class="fas fa-shopping-bag"></i>Last minute Shopping Asakusa</span></div>
             <div class="time-activity-row"><span class="time-badge">12:00 PM</span><span class="activity-text"><i class="fas fa-hotel"></i>Hotel Check Out</span></div>
             <div class="time-activity-row"><span class="time-badge">4:00 PM</span><span class="activity-text"><i class="fas fa-plane-arrival"></i>Arrival Narita Airport</span></div>
-            <div class="time-activity-row"><span class="time-badge">6:00 PM</span><span class="activity-text"><i class="fas fa-plane-departure"></i>Departure @ 6:00 PM</span></div>
-            <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 12pm · at Narita by 4pm · depart 6:00 PM</div>
+            <div class="time-activity-row"><span class="time-badge">7:15 PM</span><span class="activity-text"><i class="fas fa-plane-departure"></i>Departure @ 7:15 PM (5J 5057)</span></div>
+            <div class="alert-note"><i class="fas fa-check-circle"></i> Check-out 12pm · at Narita by 4pm · depart 7:15 PM</div>
         </div>
     </div>
 </div>
