@@ -379,6 +379,15 @@ body {
     box-shadow: 0 3px 0 rgba(150,120,90,.15);
 }
 
+.day-label a {
+    color: #2d1f12;
+    text-decoration: none;
+}
+
+.day-label a:hover {
+    text-decoration: underline;
+}
+
 /* ==================== FOOTER ==================== */
 .footer-modern {
     background: rgba(240,215,185,.85);
@@ -688,6 +697,20 @@ body {
 .shibuya-title i,
 .disney-title i {
     margin-right: 6px;
+}
+
+.fuji-title a,
+.shibuya-title a,
+.disney-title a {
+    color: #2d1f12;
+    text-decoration: none;
+}
+
+.fuji-title a:hover,
+.shibuya-title a:hover,
+.disney-title a:hover {
+    text-decoration: underline;
+    color: #7a4a2a;
 }
 
 .map-link {
@@ -1149,7 +1172,7 @@ body {
             </div>
         </div>
 
-        <!-- DAY CARDS (UPDATED SEQUENCE) -->
+        <!-- DAY CARDS -->
         <div class="day-tile" onclick="openModal('modal-day1')">
             <div class="day-header">
                 <span class="day-badge">DAY 1</span>
@@ -1172,7 +1195,10 @@ body {
             <div class="day-header">
                 <span class="day-badge">DAY 3</span>
                 <span class="day-date">Sunday, Oct 11, 2026</span>
-                <span class="day-label"><i class="fas fa-mountain"></i> Nikko Day Trip</span>
+                <span class="day-label">
+                    <i class="fas fa-mountain"></i>
+                    <a href="https://drive.google.com/file/d/1uvNKhaPrBzK2g-i6Qtzios-YPDvRErQZ/view?usp=drive_link" target="_blank" onclick="event.stopPropagation()">Nikko Day Trip</a>
+                </span>
                 <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
             </div>
         </div>
@@ -1370,7 +1396,7 @@ body {
             </div>
             <div class="time-activity-row"><span class="time-badge">LUNCH</span><span class="activity-text"><i class="fas fa-map-pin"></i> near KFC in JJK (sidequest: look for Godzilla, if time permits)</span></div>
             <div class="time-activity-row"><span class="time-badge">1:00 PM</span><span class="activity-text"><i class="fas fa-train"></i>(30 mins) ROPPONGI</span></div>
-            <div class="time-activity-row"><span class="time-badge">2:00 PM</span><span class="activity-text"><i class="fas fa-building"></i>TeamLab Borderless Mori Bldg</span></div>
+            
             <div class="time-activity-row"><span class="time-badge">4:00 PM</span><span class="activity-text"><i class="fas fa-university"></i>Salon De the Rond</span></div>
             <div class="time-activity-row"><span class="time-badge">EXTRA</span><span class="activity-text"><i class="fas fa-city"></i>Roppongi Hills - Tokyo City View (if time permits)</span></div>
 
@@ -1389,11 +1415,31 @@ body {
 
         <div class="modal-body">
             <div class="time-activity-row">
-                <span class="time-badge">6:00 AM</span>
-                <span class="activity-text"><i class="fas fa-mountain"></i>Nikko Day Trip (Toshogu, Kegon)</span>
+                <span class="time-badge">7:00 AM</span>
+                <span class="activity-text"><i class="fas fa-users"></i>MEET UP LOCATION</span>
+            </div>
+            <div class="time-activity-row">
+                <span class="time-badge">8:00 AM</span>
+                <span class="activity-text"><i class="fas fa-bus"></i>Departure</span>
+            </div>
+            <div class="time-activity-row">
+                <span class="time-badge">10:40 AM</span>
+                <span class="activity-text"><i class="fas fa-torii-gate"></i>Nikko Toshogu</span>
+            </div>
+            <div class="time-activity-row">
+                <span class="time-badge">2:00 PM</span>
+                <span class="activity-text"><i class="fas fa-road"></i>Irohazaka Winding Road <span class="extra-route-note"><i class="fas fa-car"></i> Drive-through, no stops</span></span>
+            </div>
+            <div class="time-activity-row">
+                <span class="time-badge">3:00 PM</span>
+                <span class="activity-text"><i class="fas fa-water"></i>Lake Chūzenji</span>
+            </div>
+            <div class="time-activity-row">
+                <span class="time-badge">3:40 PM</span>
+                <span class="activity-text"><i class="fas fa-waterfall"></i>Kegon Falls</span>
             </div>
 
-            <div class="alert-note"><i class="fas fa-map"></i> Nikko: world heritage & autumn leaves</div>
+            <div class="alert-note"><i class="fas fa-map"></i> Nikko: world heritage & autumn leaves — full day itinerary now complete 🍁</div>
         </div>
     </div>
 </div>
@@ -1408,7 +1454,10 @@ body {
 
         <div class="modal-body">
             <div class="fuji-section">
-                <div class="fuji-title"><i class="fas fa-fuji"></i> Mt Fuji Tour</div>
+                <div class="fuji-title">
+                    <i class="fas fa-fuji"></i>
+                    <a href="https://drive.google.com/file/d/1Xr4245lzZVzp-hJAYe-_A2iwtC3SmN_g/view?usp=drive_link" target="_blank">Mt Fuji Tour</a>
+                </div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">5:30 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
@@ -1456,7 +1505,10 @@ body {
 
         <div class="modal-body">
             <div class="shibuya-section">
-                <div class="shibuya-title"><i class="fas fa-building"></i> SHIBUYA</div>
+                <div class="shibuya-title">
+                    <i class="fas fa-building"></i>
+                    <a href="https://drive.google.com/file/d/14B2EAuDB2uRnvBe4qNzPo53rRGqFI4xr/view?usp=drive_link" target="_blank">SHIBUYA</a>
+                </div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">7:00 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
@@ -1512,7 +1564,10 @@ body {
 
         <div class="modal-body">
             <div class="disney-section">
-                <div class="disney-title"><i class="fas fa-castle"></i> Disneyland Adventure</div>
+                <div class="disney-title">
+                    <i class="fas fa-castle"></i>
+                    <a href="https://drive.google.com/file/d/1PovlWfASm7a5J-Cm3KJ4oztKLfbBk-Hk/view?usp=drive_link" target="_blank">Disneyland Adventure</a>
+                </div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">5:00 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
