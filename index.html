@@ -676,7 +676,8 @@ body {
 .movie-section,
 .fuji-section,
 .shibuya-section,
-.disney-section {
+.disney-section,
+.nikko-section {
     background: rgba(255,248,240,.6);
     border-radius: 24px;
     padding: 10px 16px;
@@ -687,7 +688,8 @@ body {
 .movie-title,
 .fuji-title,
 .shibuya-title,
-.disney-title {
+.disney-title,
+.nikko-title {
     font: 900 1.1rem 'Playfair Display', serif;
     color: #2d1f12;
 }
@@ -695,20 +697,25 @@ body {
 .movie-title i,
 .fuji-title i,
 .shibuya-title i,
-.disney-title i {
+.disney-title i,
+.nikko-title i {
     margin-right: 6px;
 }
 
+.movie-title a,
 .fuji-title a,
 .shibuya-title a,
-.disney-title a {
+.disney-title a,
+.nikko-title a {
     color: #2d1f12;
     text-decoration: none;
 }
 
+.movie-title a:hover,
 .fuji-title a:hover,
 .shibuya-title a:hover,
-.disney-title a:hover {
+.disney-title a:hover,
+.nikko-title a:hover {
     text-decoration: underline;
     color: #7a4a2a;
 }
@@ -733,6 +740,30 @@ body {
     font-weight: 700;
     color: #4a3222;
     border: 2px dashed rgba(180,150,120,.3);
+}
+
+/* ==================== DISNEY RIDE LIST ==================== */
+.disney-rides {
+    list-style: none;
+    padding: 6px 0 4px 12px;
+    margin: 0;
+    font-size: .85rem;
+    color: #2d1f12;
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 18px;
+}
+.disney-rides li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 0;
+}
+.disney-rides li i {
+    color: #b08060;
+    font-size: .8rem;
+    width: 16px;
 }
 
 /* ==================== ABOUT ME ==================== */
@@ -1002,14 +1033,16 @@ body {
     .movie-section,
     .fuji-section,
     .shibuya-section,
-    .disney-section {
+    .disney-section,
+    .nikko-section {
         padding: 8px 12px;
     }
 
     .movie-title,
     .fuji-title,
     .shibuya-title,
-    .disney-title {
+    .disney-title,
+    .nikko-title {
         font-size: .95rem;
     }
 
@@ -1086,6 +1119,12 @@ body {
 
     .countdown span {
         min-width: 28px;
+    }
+
+    .disney-rides {
+        grid-template-columns: 1fr;
+        gap: 2px 12px;
+        font-size: .75rem;
     }
 }
 
@@ -1167,7 +1206,7 @@ body {
                 </div>
 
                 <div class="price-chip" onclick="openModal('modal-price')">
-                    <i class="fas fa-tag"></i> ₱50,000/pax*
+                    <i class="fas fa-tag"></i> Flight Details*
                 </div>
             </div>
         </div>
@@ -1371,7 +1410,10 @@ body {
 
         <div class="modal-body">
             <div class="movie-section">
-                <div class="movie-title"><i class="fas fa-film"></i> Kimi No Nawa (Your Name) DIY</div>
+                <div class="movie-title">
+                    <i class="fas fa-film"></i>
+                    <a href="https://www.tofugu.com/japan/your-name-locations/" target="_blank">Kimi No Nawa (Your Name) DIY</a>
+                </div>
             </div>
 
             <div class="time-activity-row"><span class="time-badge">6:00 AM</span><span class="activity-text"><i class="fas fa-bell"></i>WAKE UP TIME</span></div>
@@ -1414,6 +1456,13 @@ body {
         </div>
 
         <div class="modal-body">
+            <div class="nikko-section">
+                <div class="nikko-title">
+                    <i class="fas fa-mountain"></i>
+                    <a href="https://drive.google.com/file/d/1uvNKhaPrBzK2g-i6Qtzios-YPDvRErQZ/view?usp=drive_link" target="_blank">NIKKO DAY TRIP</a>
+                </div>
+            </div>
+
             <div class="time-activity-row">
                 <span class="time-badge">7:00 AM</span>
                 <span class="activity-text"><i class="fas fa-users"></i>MEET UP LOCATION</span>
@@ -1580,8 +1629,28 @@ body {
                 </span>
             </div>
 
+            <div class="time-activity-row"><span class="time-badge">10:00 AM</span><span class="activity-text"><i class="fas fa-flag-checkered"></i>FULL DAY ADVENTURE</span></div>
+
+            <div style="padding: 6px 0 2px 34px; font-weight: 700; font-size: .85rem; color: #2d1f12;">
+                <i class="fas fa-ticket-alt" style="color: #b08060; margin-right: 8px;"></i>RIDES:
+            </div>
+            <ul class="disney-rides">
+                <li><i class="fas fa-check-circle"></i>Enchanted Tale of Beauty and the Beast</li>
+                <li><i class="fas fa-check-circle"></i>The Happy Ride with Baymax</li>
+                <li><i class="fas fa-check-circle"></i>Big Thunder Mountain</li>
+                <li><i class="fas fa-check-circle"></i>Pooh’s Honey Hunt</li>
+                <li><i class="fas fa-check-circle"></i>Splash Mountain</li>
+                <li><i class="fas fa-check-circle"></i>Buzz Lightyear’s Astro Blasters</li>
+                <li><i class="fas fa-check-circle"></i>Monsters, Inc. Ride & Go Seek!</li>
+                <li><i class="fas fa-check-circle"></i>Pirates of the Caribbean</li>
+                <li><i class="fas fa-check-circle"></i>Space Mountain</li>
+                <li><i class="fas fa-check-circle"></i>It’s a small world</li>
+                <li><i class="fas fa-check-circle"></i>Haunted Mansion</li>
+            </ul>
+
+            <div class="time-activity-row" style="margin-top: 8px;"><span class="time-badge">8:30 PM</span><span class="activity-text"><i class="fas fa-fire"></i>Fireworks: Sky Full of Colors</span></div>
             <div class="time-activity-row">
-                <span class="time-badge">9:00 PM</span>
+                <span class="time-badge">9:30 PM</span>
                 <span class="activity-text">
                     <i class="fas fa-hotel"></i>
                     <a href="https://www.google.com/maps/dir/Tokyo+Disneyland/APA+Hotel+Asakusa-Eki-mae" target="_blank" class="map-link">Back to Hotel</a>
